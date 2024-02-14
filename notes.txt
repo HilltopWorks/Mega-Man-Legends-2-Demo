@@ -1,0 +1,208 @@
+00 to F7: 1 byte characters
+F8 to FA: 2 byte characters
+
+FC = \n
+FD = Flashing?
+FE = null?
+FF = {EOL}
+
+
+
+Control codes:
+FB 37 ?? ?? ?? ??
+Nothing?
+
+FB 36 ?? ??
+Buggy. Crashes.
+
+FB 35 ?? ??
+Nothing?
+
+FB 34 ?? ??
+Nothing?
+
+FB 33 ??
+Nothing?
+
+FB 32 ??
+Terminator?
+
+FB 31
+Nothing?
+
+FB 30 XX
+Graphical corruption?
+
+FB 2F XX
+Next text is XX pixels down (Signed byte)
+
+FB 2E XX
+Print space XX pixels wide
+
+FB 2D ??
+Nothing?
+
+FB 2C ??
+Nothing?
+
+FB 2B
+Terminator?
+
+FB 2A ?? XX
+Changes line to XX. Buggy. Flashing.
+
+FB 29
+Unknown. Used in text.
+
+FB 28 ?? ?? ?? ??
+Buggy. Crashes.
+
+FB 27
+Buggy. Crashes.
+
+FB 26
+Buggy. Crashes. Possible ?? ?? 2 bytes more
+
+FB 25
+Buggy. Crashes.
+
+FB 24
+Terminator?
+
+FB 23
+Overwrite next 8 bytes with timer in form" 0:00:00"
+
+FB 22 XX
+Print button XX (including sticks, etc)
+
+FB 21
+Overwrite next 8 bytes with "       0"? Counter probably
+
+FB 20 XX
+Print Weapon Name XX
+
+FB 1F
+Corrupts 
+
+FB 1E XX YY
+Add next XX bytes to header text box,
+then skip YY bytes. If XX == YY, no overlap occurs
+
+FB 1D
+Buggy. Nothing
+
+FB 1C
+Buggy. Nothing
+
+FB 1B
+Buggy. Crashes
+
+FB 1A ?? ?? ??
+Buggy. Nothing
+
+FB 19 ?? ??
+Buggy. Nothing
+
+FB 18
+Terminates
+
+FB 17
+Large Black Text
+
+FB 16 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ??
+Buggy. Nothing.
+
+FB 15 ?? ?? ?? ?? ?? ?? ?? ?? ??
+Buggy. Nothing.
+
+FB 14 ?? ?? ??
+Buggy. Nothing or crash
+
+FB 13 ?? XX
+Buggy. Flashing. Skips XX bytes
+
+FB 12 ?? ??
+Buggy. Flashing.
+
+FB 11 ?? XX ??
+Buggy. Changes line to XX
+
+FB 10
+Terminates?
+
+FB 0F ??
+Prints a space (?)
+
+FB 0E XX
+Change to line XX
+
+FB 0D ?? ?? ?? ??
+Buggy flashing (and Y offset?)
+
+FB 0C
+Buggy flashing
+
+FB 0B
+Nothing?
+
+FB 0A XX
+Set text color XX
+
+FB 09 XX
+Text speed = XX frames until next glyph
+
+FB 08 ?? ??
+Pause?
+
+FB 07 ??
+Buggy. Causes flashing
+
+FB 06 AA XX BB YY CC WW DH
+Text Box ABCD Unknown
+XX = X pos, YY = Y pos, WW = width in characters, H = height in lines
+
+FB 05 TT ??
+Text box type TT
+
+FB 04 XX XX
+Text box lifetime. Parameter is lifetime in frames Big Endian
+
+FB 03
+Unused. Prints the 3
+
+FB 02 XX
+Buggy. Prints 2 and then skips XX bytes + 1
+
+FB 01 ?? ?? ??
+Buggy. Causes flashing?
+
+FB 00
+Buggy. Prints 0 then a newline
+
+FE XX __ YY CC
+Furigana code
+XX is always printed, and __ is present if 2 byte code
+YY is length of furigana
+CC is YY bytes long
+
+
+
+
+GRAPHICS:
+Menu: C:\dev\roll\unpack\DAT\DEMO\DEMO-0x00003800-3.uncomp.bin
+Font: C:\dev\roll\unpack\DAT\INIT\INIT-0x00013800-2.bin
+
+
+TEXT:
+C:\dev\roll\unpack\DAT\ST07\ST07-0x00012000-1.bin
+C:\dev\roll\unpack\DAT\ST20\ST20-0x00014800-1.bin
+C:\dev\roll\unpack\DAT\ST21\ST21-0x0000e000-1.bin
+C:\dev\roll\unpack\DAT\ST22\ST22-0x00018800-1.bin
+C:\dev\roll\unpack\DAT\ST23\ST23-0x0001d000-1.bin
+C:\dev\roll\unpack\DAT\ST24\ST24-0x00026800-1.bin
+C:\dev\roll\unpack\DAT\ST26\ST26-0x00014800-1.bin
+C:\dev\roll\unpack\DAT\ST28\ST28-0x00014000-1.bin
+C:\dev\roll\unpack\DAT\ST29\ST29-0x0000c800-1.bin
+C:\dev\roll\unpack\DAT\ST2001\ST2001-0x00014800-1.bin
+
+C:\dev\roll\unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin  @  0x7304
