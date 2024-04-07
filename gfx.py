@@ -44,7 +44,26 @@ font_pxl_inject_2 = {
                             "PXL_MODE":ImageHill.FOUR_BIT
                         }
 
-#ImageHill.convertImage(font_pxl, font_clut1, "font_1.PNG", True)
+
+test1C =          {
+                            "CLUT_FILE":r"unpack\DAT\ST00T\ST00T-0x0001a800-3.uncomp.bin",
+                            "CLUT_OFFSET":0xC0,
+                            "N_COLORS":0x10,
+                            "CLUT_MODE":ImageHill.RGBA_5551_PS1
+    
+    
+                        }
+
+test1P = {
+                            "PXL_FILE":r"unpack\DAT\ST00T\ST00T-0x0001a800-3.uncomp.bin",
+                            "PXL_OFFSET":0x100,
+                            "WIDTH":256,
+                            "HEIGHT":256,
+                            "PXL_MODE":ImageHill.FOUR_BIT
+                        }
+
+
+#ImageHill.convertImage(test1P, test1C, "test1.PNG", True)
 #ImageHill.convertImage(font_pxl, font_clut2, "font_2.PNG", True)
 
 space_width = 0x4
@@ -89,7 +108,7 @@ def inject_font(out_file_path):
     font_file_1.seek(pxl_start)
     font_file_2.seek(pxl_start)
 
-    for x in range(os.stat(font_path_1).st_size//4):
+    for x in range((os.stat(font_path_1).st_size - pxl_start)//4):
         word_1 = int.from_bytes(font_file_1.read(4), 'little')
         word_2 = int.from_bytes(font_file_2.read(4), 'little')
 
@@ -98,5 +117,5 @@ def inject_font(out_file_path):
         out_file.write(out_word.to_bytes(4, "little"))
     return
 
-inject_font("unpack_edit\\DAT\\INIT\\INIT-0x00013800-2.bin")
+#inject_font("unpack_edit\\DAT\\INIT\\INIT-0x00013800-2.bin")
 #get_vwf("font_1.PNG", "vwf_test.bin", 12, 12, 11, 20)

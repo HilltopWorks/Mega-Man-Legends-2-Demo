@@ -40,13 +40,172 @@ text_files =   {"unpack\DAT\ST07\ST07-0x00012000-1.bin": 0,
                 "unpack\DAT\ST28\ST28-0x00014000-1.bin": 0,
                 "unpack\DAT\ST29\ST29-0x0000c800-1.bin": 0,
                 "unpack\DAT\ST2001\ST2001-0x00014800-1.bin": 0,
-                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin": 0x7304,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|0": 0x7304,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|1": 0x9244,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|2": 0x932c,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|3": 0x9640,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|4": 0x96ac,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|5": 0x970c,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|6": 0x9768,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|7": 0x97C0,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|8": 0x9870,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|9": 0x98e8,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|10": 0x99c0,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|11": 0x9a48,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|12": 0x9abc,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|13": 0x9c84,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|14": 0x9cfc,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|15": 0x9d70,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|16": 0x9dd8,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|17": 0x9e40,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|18": 0x9e9c,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|19": 0x970c,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|20": 0x9ef0,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|21": 0x9f94,
+                "unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|22": 0x9ff0,
+
                 "src\SLPS_021.09|0": 0x5372C,
                 "src\SLPS_021.09|1": 0x52FB0,
                 "src\SLPS_021.09|2": 0x533E0,
                 "src\SLPS_021.09|3": 0x535D8}
 
-area_offset = 0x535D8
+
+subsc_loads =  [
+                {#0
+                    "ptrs":[],
+                    "upper":[0x801ea5b4, 0x801ebc18],
+                    "lower":[0x801ea5b8, 0x801ebc20]
+                },
+                {#1
+                    "ptrs":[],
+                    "upper":[0x801e6c10, 0x801e6c20, 0x801e6dc0, 0x801eb608],
+                    "lower":[0x801e6c14, 0x801e6c24, 0x801e6dc4, 0x801eb60c]
+                },
+                {#2
+                    "ptrs":[],
+                    "upper":[0x801e8cd8, 0x801e8d34, 0x801e8f48],
+                    "lower":[0x801e8cdc, 0x801e8d38, 0x801e8f4c]
+                },
+                {#3
+                    "ptrs":[0x801f0874, 0x801f087C, 0x801f0884],
+                    "upper":[],
+                    "lower":[]
+                },
+                {#4
+                    "ptrs":[0x801f08b4],
+                    "upper":[],
+                    "lower":[]
+                },
+                {#5
+                    "ptrs":[0x801eff0c],
+                    "upper":[],
+                    "lower":[]
+                },
+                {#6
+                    "ptrs":[],
+                    "upper":[],
+                    "lower":[]
+                },
+                {#7
+                    "ptrs":[0x801f08ac],
+                    "upper":[],
+                    "lower":[]
+                },
+                {#8
+                    "ptrs":[],
+                    "upper":[],
+                    "lower":[]
+                },
+                {#9
+                    "ptrs":[0x801f094c],
+                    "upper":[],
+                    "lower":[]
+                },
+                {#10
+                    "ptrs":[0x801f08fc],
+                    "upper":[],
+                    "lower":[]
+                },
+                {#11
+                    "ptrs":[0x801f08cc],
+                    "upper":[],
+                    "lower":[]
+                },
+                {#12
+                    "ptrs":[],
+                    "upper":[0x801e8bf0,0x801e8c28],
+                    "lower":[0x801e8bf8,0x801e8c30]
+                },
+                {#13
+                    "ptrs":[0x801f090c],
+                    "upper":[],
+                    "lower":[]
+                },
+                {#14
+                    "ptrs":[0x801f08e4],
+                    "upper":[],
+                    "lower":[]
+                },
+                {#15
+                    "ptrs":[0x801f08ec, 0x801f08f4],
+                    "upper":[],
+                    "lower":[]
+                },
+                {#16
+                    "ptrs":[0x801f095c],
+                    "upper":[],
+                    "lower":[]
+                },
+                {#17
+                    "ptrs":[0x801f0934],
+                    "upper":[],
+                    "lower":[]
+                },
+                {#18
+                    "ptrs":[0x801f093c],
+                    "upper":[],
+                    "lower":[]
+                },
+                {#19
+                    "ptrs":[0x801f089c],
+                    "upper":[],
+                    "lower":[]
+                },
+                {#20
+                    "ptrs":[0x801f091c],
+                    "upper":[0x801e9834],
+                    "lower":[0x801e9838]
+                },
+                {#21
+                    "ptrs":[0x801f096c],
+                    "upper":[],
+                    "lower":[]
+                },
+                {#22
+                    "ptrs":[0x801f0974],
+                    "upper":[],
+                    "lower":[]
+                }
+               ]
+
+subsc_bin_start = 0x801e6800
+subsc_text_start = 0x801edb04
+subsc_text_max = 0x2d6C
+
+
+def get_subsc_addrs():
+    for x in text_files:
+        if "SUBS" not in x:
+            continue
+
+        offset = text_files[x]
+        print(hex(offset + subsc_bin_start))
+
+    return
+
+
+
+#area_offset = 0x535D8
 
 pause_text_loads = {
                     "upper":[0x8001b128],
@@ -67,9 +226,15 @@ parts_text_loads = {
                     "upper":[0x80041990,0x800419dc,0x80043050],
                     "lower":[0x80041994,0x800419e0,0x80043054]
                     }
-
+parts_text_loads_subsc = {
+                    "upper":[0x801E6800 + 0x3D40,0x801E6800 + 0x51c4,0x801E6800 + 0x54e0],
+                    "lower":[0x801E6800 + 0x3D44,0x801E6800 + 0x51c8,0x801E6800 + 0x54e4]
+                    }
 exe_text_start = 0x800627b0
 exe_text_size_max = 0x190F
+
+
+
 
 def make_control_code_list():
     for x in range(0x38):
@@ -191,6 +356,11 @@ def applyLoad(address, loads, exe_file, exe_offset):
     for lo_addr in loads["lower"]:
         exe_file.seek(lo_addr - exe_offset)
         exe_file.write(address_lo.to_bytes(2, "little"))
+
+    if "ptrs" in loads:
+        for ptr in loads["ptrs"]:
+            exe_file.seek(ptr - exe_offset)
+            exe_file.write(ptr.to_bytes(4, "little"))
     return
 
 def injectAll(text_file_path, exe_path):
@@ -201,13 +371,14 @@ def injectAll(text_file_path, exe_path):
         if "DAT" in file_path:
             #DAT file text
             target_path = file_path.replace("unpack", "unpack_edit")
-            target_offset = text_files[file_path]
+            
             if "SUBSCN" in file_path:
-                target_file = open(target_path, "r+b")
-                assert len(injected_bins[file_path]) <= 0x1F3F
+                continue
+                #target_file = open(target_path, "r+b")
+                #assert len(injected_bins[file_path]) <= 0x1F3F
             else:
                 target_file = open(target_path, "wb")
-            
+            target_offset = text_files[file_path]
             target_file.seek(target_offset)
             target_file.write(injected_bins[file_path])
             target_file.close()
@@ -237,10 +408,36 @@ def injectAll(text_file_path, exe_path):
     exe_file.seek(exe_text_start - 0x8000f800)
     exe_file.write(exe_blob)
 
-    applyLoad(exe_text_start                                                                   , pause_text_loads, exe_file, 0x8000f800)
+    subscr_file = open("unpack_edit\\DAT\\SUBSCN00\\SUBSCN00-0x00000000-1.bin", "r+b")
+    
+    #applyLoad(exe_text_start                                                                   , pause_text_loads, exe_file, 0x8000f800)
     applyLoad(exe_text_start + len(exe_pause_file)                                             , button_text_loads, exe_file, 0x8000f800)
     applyLoad(exe_text_start + len(exe_pause_file) + len(exe_buttons_file)                     , area_text_loads, exe_file, 0x8000f800)
     applyLoad(exe_text_start + len(exe_pause_file) + len(exe_buttons_file) + len(exe_area_file), parts_text_loads, exe_file, 0x8000f800)
+    applyLoad(exe_text_start + len(exe_pause_file) + len(exe_buttons_file) + len(exe_area_file), parts_text_loads_subsc, subscr_file, subsc_bin_start)
+
+
+    subsc_blob = b''
+    subscr_sizes = []
+    for x in range(len(subsc_loads)):
+        offset = text_files["unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|" + str(x)]
+        subsc_file = injected_bins["unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|" + hex(offset)]
+        if len(subsc_file) % 2 != 0:
+            subsc_file += b"\x00"
+        subsc_blob += subsc_file
+        subscr_sizes.append(len(subsc_file))
+
+    assert len(subsc_blob) <= subsc_text_max
+    
+    subscr_parent_file = open("src_edit\DAT\SUBSCN00.BIN", "r+b")
+    subscr_parent_file.seek(subsc_text_start - subsc_bin_start)
+    subscr_parent_file.write(subsc_blob)
+
+    cursor = 0
+    for x in range(len(subsc_loads)):
+        applyLoad(subsc_text_start + cursor, subsc_loads[x], subscr_file, subsc_bin_start )
+        cursor += subscr_sizes[x]
+
     return
 
 
@@ -252,8 +449,10 @@ def injectAll(text_file_path, exe_path):
 #convertMSG(r"C:\dev\roll\unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin", 0x7304)
 #convertMSG(r"unpack\DAT\ST27T\ST27T-0x00002000-1.bin", 0x0)
 #convertMSG(r"src_edit\SLPS_021.09", 0x5372C)
-#convertRaw("PAUSE")
+#convertRaw("コントロ")
 
+
+#get_subsc_addrs()
 #extractText()
-injectAll("recieved\\MML_text.txt", "src_edit\\SLPS_021.09")
+#injectAll("recieved\\MML_text.txt", "src_edit\\SLPS_021.09")
 #injectTextToBin("recieved\\MML_text.txt")
