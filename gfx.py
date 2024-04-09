@@ -4,6 +4,7 @@ from pathlib import Path
 from PIL import Image,ImageDraw,ImageFont
 
 
+##### Font
 
 font_pxl =            {
                             "PXL_FILE":r"C:\dev\roll\unpack\DAT\INIT\INIT-0x00013800-2.bin",
@@ -44,7 +45,6 @@ font_pxl_inject_2 = {
                             "PXL_MODE":ImageHill.FOUR_BIT
                         }
 
-
 test1C =          {
                             "CLUT_FILE":r"unpack\DAT\ST00T\ST00T-0x0001a800-3.uncomp.bin",
                             "CLUT_OFFSET":0xC0,
@@ -54,19 +54,144 @@ test1C =          {
     
                         }
 
-test1P = {
-                            "PXL_FILE":r"unpack\DAT\ST00T\ST00T-0x0001a800-3.uncomp.bin",
-                            "PXL_OFFSET":0x100,
+
+##### Subscreens
+
+subscC =          {
+                            "CLUT_FILE":r"unpack\DAT\GAME\GAME-0x00030800-3.uncomp.bin",
+                            "CLUT_OFFSET":0,
+                            "N_COLORS":0x10,
+                            "CLUT_MODE":ImageHill.RGBA_5551_PS1
+    
+    
+                        }
+
+
+
+subsc1P = {
+                            "PXL_FILE":r"unpack\DAT\SUBSCN06\SUBSCN06-0x00000000-2.bin",
+                            "PXL_OFFSET":0x3d0,
                             "WIDTH":256,
                             "HEIGHT":256,
                             "PXL_MODE":ImageHill.FOUR_BIT
                         }
 
+subsc2P = {
+                            "PXL_FILE":r"unpack\DAT\SUBSCN03\SUBSCN03-0x00001800-2.bin",
+                            "PXL_OFFSET":0x9D0,
+                            "WIDTH":256,
+                            "HEIGHT":128,
+                            "PXL_MODE":ImageHill.FOUR_BIT
+                        }
 
-#ImageHill.convertImage(test1P, test1C, "test1.PNG", True)
-#ImageHill.convertImage(font_pxl, font_clut2, "font_2.PNG", True)
 
-space_width = 0x4
+
+subsc3P = {
+                            "PXL_FILE":r"unpack\DAT\SUBSCN04\SUBSCN04-0x00000000-2.bin",
+                            "PXL_OFFSET":0x9D0,
+                            "WIDTH":256,
+                            "HEIGHT":128,
+                            "PXL_MODE":ImageHill.FOUR_BIT
+                        }
+
+subsc4P = {
+                            "PXL_FILE":r"unpack\DAT\GAME\GAME-0x00030800-3.uncomp.bin",
+                            "PXL_OFFSET":0x300,
+                            "WIDTH":256,
+                            "HEIGHT":256,
+                            "PXL_MODE":ImageHill.FOUR_BIT
+                        }
+
+###### Subscreens USA
+
+subscP_USA = {
+                            "PXL_FILE":r"Mega Man Legends 2 (USA) (Demo)\src\DAT\LEGEND2.BIN",
+                            "PXL_OFFSET":0x226800,
+                            "WIDTH":256,
+                            "HEIGHT":256,
+                            "PXL_MODE":ImageHill.FOUR_BIT
+                        }
+
+subsc2P_USA = {
+                            "PXL_FILE":r"Mega Man Legends 2 (USA) (Demo)\src\DAT\LEGEND2.BIN",
+                            "PXL_OFFSET":0x21b800,
+                            "WIDTH":256,
+                            "HEIGHT":256,
+                            "PXL_MODE":ImageHill.FOUR_BIT
+                        }
+
+subsc3P_USA = {
+                            "PXL_FILE":r"Mega Man Legends 2 (USA) (Demo)\src\DAT\LEGEND2.BIN",
+                            "PXL_OFFSET":0x213000,
+                            "WIDTH":256,
+                            "HEIGHT":128,
+                            "PXL_MODE":ImageHill.FOUR_BIT
+                        }
+
+subsc4P_USA = {
+                            "PXL_FILE":r"Mega Man Legends 2 (USA) (Demo)\src\DAT\LEGEND2.BIN",
+                            "PXL_OFFSET":0x20E000,
+                            "WIDTH":256,
+                            "HEIGHT":128,
+                            "PXL_MODE":ImageHill.FOUR_BIT
+                        }
+
+#### Game Over
+gover1C =          {
+                            "CLUT_FILE":r"unpack\DAT\G_OVER00\G_OVER00-0x00000000-3.uncomp.bin",
+                            "CLUT_OFFSET":0,
+                            "N_COLORS":0x100,
+                            "CLUT_MODE":ImageHill.RGBA_5551_PS1
+    
+    
+                        }
+
+
+
+gover1P = {
+                            "PXL_FILE":r"unpack\DAT\G_OVER00\G_OVER00-0x00000000-3.uncomp.bin",
+                            "PXL_OFFSET":0x200,
+                            "WIDTH":0x220,
+                            "HEIGHT":0x3C,
+                            "PXL_MODE":ImageHill.EIGHT_BIT
+                        }
+
+gover2P = {
+                            "PXL_FILE":r"unpack\DAT\G_OVER00\G_OVER00-0x00002800-3.uncomp.bin",
+                            "PXL_OFFSET":0x0,
+                            "WIDTH":0x220,
+                            "HEIGHT":0x3C,
+                            "PXL_MODE":ImageHill.EIGHT_BIT
+                        }
+
+gover3P = {
+                            "PXL_FILE":r"unpack\DAT\G_OVER00\G_OVER00-0x00005800-3.uncomp.bin",
+                            "PXL_OFFSET":0x0,
+                            "WIDTH":0x220,
+                            "HEIGHT":0x3C,
+                            "PXL_MODE":ImageHill.EIGHT_BIT
+                        }
+
+gover4P = {
+                            "PXL_FILE":r"unpack\DAT\G_OVER00\G_OVER00-0x00008000-3.uncomp.bin",
+                            "PXL_OFFSET":0x0,
+                            "WIDTH":0x220,
+                            "HEIGHT":0x1C,
+                            "PXL_MODE":ImageHill.EIGHT_BIT
+                        }
+
+#ImageHill.convertImage(subsc4P_USA, subscC, "subsc4_USA.PNG", True)
+#ImageHill.convertImage(subsc3P_USA, subscC, "subsc3_USA.PNG", True)
+#ImageHill.convertImage(subsc2P_USA, subscC, "subsc2_USA.PNG", True)
+#ImageHill.convertImage(subscP_USA, subscC, "subsc_USA.PNG", True)
+#ImageHill.convertImage(subsc4P, subscC, "subsc4.PNG", True)
+#ImageHill.convertImage(gover1P, gover1C, "gover1.PNG", True)
+#ImageHill.convertImage(gover2P, gover1C, "gover2.PNG", True)
+#ImageHill.convertImage(gover3P, gover1C, "gover3.PNG", True)
+#ImageHill.convertImage(gover4P, gover1C, "gover4.PNG", True)
+
+
+space_width = 0x3
 
 def get_vwf(font_path, vwf_bin_path, glyph_w, glyph_h, n_rows, n_columns):
     font_im = Image.open(font_path)

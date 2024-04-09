@@ -9,7 +9,7 @@ def build():
     shutil.copyfile("src\\SLPS_021.09","src_edit\\SLPS_021.09")
     MMLtext.injectAll("recieved\\MML_text.txt", "src_edit\\SLPS_021.09")
     gfx.inject_font("unpack_edit\\DAT\\INIT\\INIT-0x00013800-2.bin")
-    gfx.get_vwf("font_1_edit.PNG", "vwf.bin", 12, 12, 11, 20)
+    gfx.get_vwf("font_1_edit.PNG", "vwf.bin", 12, 12, 13, 20)
     filesys.packDATs("roll_build\\DAT")
 
     
