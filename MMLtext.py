@@ -67,7 +67,9 @@ text_files =   {"unpack\DAT\ST07\ST07-0x00012000-1.bin": 0,
                 "src\SLPS_021.09|0": 0x5372C,
                 "src\SLPS_021.09|1": 0x52FB0,
                 "src\SLPS_021.09|2": 0x533E0,
-                "src\SLPS_021.09|3": 0x535D8}
+                "src\SLPS_021.09|3": 0x535D8,
+                "src\SLPS_021.09|4": 0x52D30
+                }
 
 
 subsc_loads =  [
@@ -230,6 +232,12 @@ parts_text_loads_subsc = {
                     "upper":[0x801E6800 + 0x3D40,0x801E6800 + 0x51c4,0x801E6800 + 0x54e0],
                     "lower":[0x801E6800 + 0x3D44,0x801E6800 + 0x51c8,0x801E6800 + 0x54e4]
                     }
+
+menu_text_loads = {
+                    "ptrs":[0x80062678],
+                    "upper":[],
+                    "lower":[]
+                    }
 exe_text_start = 0x800627b0
 exe_text_size_max = 0x190F
 
@@ -241,6 +249,11 @@ def make_control_code_list():
         print(hex(x) + " : " + " ,")
     
     return
+
+def convertString(bytes):
+    string = TextHill.convertRawToText(stock_val_dict, bytes, b"\xFF")
+    print(string)
+    return string
 
 def convertRaw(string):
     bytes = TextHill.convertTextToRaw(stock_char_dict, string, b"\xFF")
@@ -314,10 +327,8 @@ def injectTextToBin(text_file_path):
         src_path = src_line.split("|")[0]
         src_file = open(src_path, "rb")
 
-        if "SLPS" in src_path:
+        if "SLPS" in src_path or "SUBSCN" in src_path:
             file_offset = int(src_line.split("|")[1],16)
-        elif "SUBSCN" in src_path:
-            file_offset = 0x7304
         else:
             file_offset = 0
         src_file.seek(file_offset)
@@ -326,6 +337,8 @@ def injectTextToBin(text_file_path):
         header_buffer += ((n_line_entries)*2).to_bytes(2, "little")
 
         lines = file_text.split(line_header)[1:]
+
+        last_line = "-=PLACEHOLDER=-"
 
         for line in lines:
             string_buffer = ""
@@ -336,20 +349,27 @@ def injectTextToBin(text_file_path):
                 string_buffer += broken_line + "\n"
 
             string_buffer = string_buffer.rstrip()
-
+            
             string_bytes = TextHill.convertTextToRaw(inject_char_dict, string_buffer)
+
             body_buffer += string_bytes
             line_offset = (len(body_buffer) + n_line_entries*2)
             header_buffer += line_offset.to_bytes(2, "little")
+            last_line = string_buffer
 
         injected_bin[src_line] = header_buffer + body_buffer
 
     return injected_bin
 
 def applyLoad(address, loads, exe_file, exe_offset):
+
+
     address_hi = address >> 16
     address_lo = address & 0xFFFF
     
+    if address_lo >= 0x8000:
+        address_hi += 1
+
     for hi_addr in loads["upper"]:
         exe_file.seek(hi_addr - exe_offset)
         exe_file.write(address_hi.to_bytes(2, "little"))
@@ -360,7 +380,7 @@ def applyLoad(address, loads, exe_file, exe_offset):
     if "ptrs" in loads:
         for ptr in loads["ptrs"]:
             exe_file.seek(ptr - exe_offset)
-            exe_file.write(ptr.to_bytes(4, "little"))
+            exe_file.write(address.to_bytes(4, "little"))
     return
 
 def injectAll(text_file_path, exe_path):
@@ -399,9 +419,14 @@ def injectAll(text_file_path, exe_path):
     if len(exe_parts_file) % 2 != 0:
         exe_parts_file += b"\x00"
 
+    exe_menu_file = injected_bins["src\SLPS_021.09|0x52d30"]
+    if len(exe_menu_file) % 2 != 0:
+        exe_menu_file += b"\x00"
 
-    exe_blob = exe_pause_file + exe_buttons_file + exe_area_file + exe_parts_file
+
+    exe_blob = exe_pause_file + exe_buttons_file + exe_area_file + exe_parts_file + exe_menu_file
     assert len(exe_blob) <= exe_text_size_max
+    print(len(exe_blob) - exe_text_size_max)
 
     exe_file = open(exe_path, "r+b")
 
@@ -415,23 +440,26 @@ def injectAll(text_file_path, exe_path):
     applyLoad(exe_text_start + len(exe_pause_file) + len(exe_buttons_file)                     , area_text_loads, exe_file, 0x8000f800)
     applyLoad(exe_text_start + len(exe_pause_file) + len(exe_buttons_file) + len(exe_area_file), parts_text_loads, exe_file, 0x8000f800)
     applyLoad(exe_text_start + len(exe_pause_file) + len(exe_buttons_file) + len(exe_area_file), parts_text_loads_subsc, subscr_file, subsc_bin_start)
-
+    applyLoad(exe_text_start + len(exe_pause_file) + len(exe_buttons_file) + len(exe_area_file) + len(exe_parts_file), menu_text_loads, exe_file, 0x8000f800)
 
     subsc_blob = b''
     subscr_sizes = []
     for x in range(len(subsc_loads)):
         offset = text_files["unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|" + str(x)]
         subsc_file = injected_bins["unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|" + hex(offset)]
-        if len(subsc_file) % 2 != 0:
-            subsc_file += b"\x00"
+        if len(subsc_file) % 4 != 0:
+            n_buffers = 4 - (len(subsc_file) % 4)
+            subsc_file += b"\x00" * n_buffers
         subsc_blob += subsc_file
         subscr_sizes.append(len(subsc_file))
 
     assert len(subsc_blob) <= subsc_text_max
+
+    #subscr_parent_file = open("src_edit\DAT\SUBSCN00.BIN", "r+b")
+    #subscr_parent_file = open("unpack_edit\\DAT\\SUBSCN00\\SUBSCN00-0x00000000-1.bin", "r+b")
     
-    subscr_parent_file = open("src_edit\DAT\SUBSCN00.BIN", "r+b")
-    subscr_parent_file.seek(subsc_text_start - subsc_bin_start)
-    subscr_parent_file.write(subsc_blob)
+    subscr_file.seek(subsc_text_start - subsc_bin_start)
+    subscr_file.write(subsc_blob)
 
     cursor = 0
     for x in range(len(subsc_loads)):
@@ -449,7 +477,9 @@ def injectAll(text_file_path, exe_path):
 #convertMSG(r"C:\dev\roll\unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin", 0x7304)
 #convertMSG(r"unpack\DAT\ST27T\ST27T-0x00002000-1.bin", 0x0)
 #convertMSG(r"src_edit\SLPS_021.09", 0x5372C)
-#convertRaw("コントロ")
+
+#convertString(b"\xFA\x32\xF8\x3B\xFA\x56\xF9\x38\xF9\x22\xFA\x7B\x7C\xF9\xA4\xFA\x99\x5B\x6E\x5C")
+#convertRaw("特殊式器")
 
 
 #get_subsc_addrs()

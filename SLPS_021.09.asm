@@ -4,6 +4,10 @@
 ; ----------------         CRC AREA START               --------------------
 .open "src_edit/SLPS_021.09",0x8000f800
 
+; ------------- Disable the custom area name kerning
+.org 0x80043044
+	addiu a3, zero, 0x0
+
 ; ------------- Hijack a jump at end of glyph render
 .definelabel jump_hijack, 0x8003eca4 
 
