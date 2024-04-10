@@ -7,6 +7,8 @@
 ; ------------- Disable the custom area name kerning
 .org 0x80043044
 	addiu a3, zero, 0x0
+.org 0x80043060
+	addiu a3, zero, 0x0
 
 ; ------------- Hijack a jump at end of glyph render
 .definelabel jump_hijack, 0x8003eca4 
