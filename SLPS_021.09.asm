@@ -3,7 +3,7 @@
 
 ; --TODO: load in the text and subtitle scripting files to their DATs
 .definelabel overlay_ID, 	0x800e0000 ;Byte
-.definelavel overlay_start, 0x800e0000 
+.definelabel overlay_start, 0x800e0000 
 ;Area 1
 scene23_ID 		equ 0x1B
 scene23_start 	equ 0x15810
@@ -175,19 +175,19 @@ perform_subtitle:
 	;	set_text(0, pTextBlock, correct_index)
 	;else:
 	;	return
-	
-	lbu t0, 0x0(scene_state);t0 gets scene state
-	lbu t1, 0x1(scene_state) 
+	la a2, scene_state
+	lbu t0, 0x0(a2);t0 gets scene state
+	lbu t1, 0x1(a2) 
 	sll t1, t1, 0x8
-	lbu t2, 0x2(scene_state)
+	lbu t2, 0x2(a2)
 	sll t2, t2, 0x10
-	lbu t3, 0x4(scene_state)
+	lbu t3, 0x4(a2)
 	sll t3, t3, 0x18
 	addu t0, t1
 	addu t0, t2
 	addu t0, t3
 
-	addu  a3, t7,   0 	;a3 is script block ptr
+	addiu a3, t7,   0 	;a3 is script block ptr
 	addiu t5, zero, 0 	;t5 is index cursor
 
 script_check_loop_head:
