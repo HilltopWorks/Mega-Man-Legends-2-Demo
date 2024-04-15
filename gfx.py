@@ -146,8 +146,6 @@ gover1C =          {
     
                         }
 
-
-
 gover1P = {
                             "PXL_FILE":r"unpack\DAT\G_OVER00\G_OVER00-0x00000000-3.uncomp.bin",
                             "PXL_OFFSET":0x200,
@@ -180,6 +178,71 @@ gover4P = {
                             "PXL_MODE":ImageHill.EIGHT_BIT
                         }
 
+
+#Scene 23
+
+#### Game Over
+S23_1C =          {
+                            "CLUT_FILE":r"unpack\DAT\ST23T\ST23T-0x00043800-3.uncomp.bin",
+                            "CLUT_OFFSET":0,
+                            "N_COLORS":0x10,
+                            "CLUT_MODE":ImageHill.RGBA_5551_PS1
+    
+    
+                        }
+
+S23_1P = {
+                            "PXL_FILE":r"unpack\DAT\ST23T\ST23T-0x00043800-3.uncomp.bin",
+                            "PXL_OFFSET":0x80,
+                            "WIDTH":0x100,
+                            "HEIGHT":0x100,
+                            "PXL_MODE":ImageHill.FOUR_BIT
+                        }
+
+S23_2P = {
+                            "PXL_FILE":r"unpack\DAT\ST23T\ST23T-0x00046800-3.uncomp.bin",
+                            "PXL_OFFSET":0x80,
+                            "WIDTH":0x100,
+                            "HEIGHT":0x100,
+                            "PXL_MODE":ImageHill.FOUR_BIT
+                        }
+
+S25_1C =          {
+                            "CLUT_FILE":r"unpack\DAT\ST25T\ST25T-0x0004d800-3.uncomp.bin",
+                            "CLUT_OFFSET":0,
+                            "N_COLORS":0x10,
+                            "CLUT_MODE":ImageHill.RGBA_5551_PS1
+    
+    
+                        }
+
+S25_1P = {
+                            "PXL_FILE":r"unpack\DAT\ST25T\ST25T-0x0004d800-3.uncomp.bin",
+                            "PXL_OFFSET":0x80,
+                            "WIDTH":0x100,
+                            "HEIGHT":0x100,
+                            "PXL_MODE":ImageHill.FOUR_BIT
+                        }
+
+
+#### Game Over
+tron_1C =          {
+                            "CLUT_FILE":r"unpack\DAT\TITLE\TITLE-0x00013000-3.uncomp.bin",
+                            "CLUT_OFFSET":0,
+                            "N_COLORS":0x10,
+                            "CLUT_MODE":ImageHill.RGBA_5551_PS1
+    
+    
+                        }
+
+tron_1P = {
+                            "PXL_FILE":r"unpack\DAT\TITLE\TITLE-0x00013000-3.uncomp.bin",
+                            "PXL_OFFSET":0x100,
+                            "WIDTH":0x100,
+                            "HEIGHT":0x100,
+                            "PXL_MODE":ImageHill.FOUR_BIT
+                        }
+
 #ImageHill.convertImage(subsc4P_USA, subscC, "subsc4_USA.PNG", True)
 #ImageHill.convertImage(subsc3P_USA, subscC, "subsc3_USA.PNG", True)
 #ImageHill.convertImage(subsc2P_USA, subscC, "subsc2_USA.PNG", True)
@@ -189,7 +252,11 @@ gover4P = {
 #ImageHill.convertImage(gover2P, gover1C, "gover2.PNG", True)
 #ImageHill.convertImage(gover3P, gover1C, "gover3.PNG", True)
 #ImageHill.convertImage(gover4P, gover1C, "gover4.PNG", True)
+#ImageHill.convertImage(S23_1P, S23_1C, "S23_1.PNG", True)
+#ImageHill.convertImage(S23_2P, S23_1C, "S23_2.PNG", True)
+#ImageHill.convertImage(S25_1P, S25_1C, "S25_1.PNG", True)
 
+ImageHill.convertImage(tron_1P, tron_1C, "tron.PNG", True)
 
 space_width = 0x3
 

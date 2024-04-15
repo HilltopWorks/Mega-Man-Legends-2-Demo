@@ -1,8 +1,62 @@
 .psx
 .erroronwarning on
 
+; --TODO: load in the text and subtitle scripting files to their DATs
+.definelabel overlay_ID, 	0x800e0000 ;Byte
+.definelavel overlay_start, 0x800e0000 
+;Area 1
+scene23_ID 		equ 0x1B
+scene23_start 	equ 0x15810
+;Area 2
+scene24_ID 		equ 0x1C
+scene24_start 	equ 0x12850
+;Area 3
+scene25_ID 		equ 0x1D
+scene25_start 	equ 0x1CAE0
+
+.open "unpack_edit/DAT/ST23T/ST23T-0x00000000-1.bin", 0x800e0000
+.org overlay_start + scene23_start
+S23_sub:
+.import "S23_sub.bin"
+S23_scripting:
+.import "S23_scripting.bin"
+.close
+
+.open "unpack_edit/DAT/ST24T/ST24T-0x00000000-1.bin", 0x800e0000
+.org overlay_start + scene24_start
+S24_sub:
+.import "S24_sub.bin"
+S24_scripting:
+.import "S24_scripting.bin"
+.close
+
+.open "unpack_edit/DAT/ST25T/ST25T-0x00000000-1.bin", 0x800e0000
+.org overlay_start + scene25_start
+S25_sub:
+.import "S25_sub.bin"
+S25_scripting:
+.import "S25_scripting.bin"
+.close
+
 ; ----------------         CRC AREA START               --------------------
 .open "src_edit/SLPS_021.09",0x8000f800
+
+; ------------- Default furigana to off
+.org 0x80012b28
+	sw zero, 0x34(v0) 
+
+
+; ------------- Subtitle scenes
+
+.definelabel voice_hijack, 0x8003decc
+.definelabel text_render, 0x8003e640
+
+.org voice_hijack
+	; TODO
+	; jal func_voice_sub
+	; nop
+
+;----------------------------------------------------------------------------------
 
 ; ------------- Disable the custom area name kerning
 .org 0x80043044
@@ -53,5 +107,131 @@ end_vwf:
 	jr t1					;RETURN
 	lui v1, 0xFF			;Moved instruction
 
+.definelabel render_text, 	0x8003dee4	;render_text(int position, void* pTextBlock, int line_id, int kerning)
+											;position & 0x3FF  => X
+											;(position >> 10) & 0x1FF => Y
+											;kerning should be 0
+.definelabel set_text, 		0x8003d9ec	;set_text(int state_variable, void* pTextBlock, int line_id)
+
+.definelabel voice_active, 	0x80070a58	;Byte
+.definelabel scene_state,	0x80070a59	;4 bytes
+.definelabel progress_timer,0x80070a74	;Int
+
+
+
+func_voice_sub:
+	;housekeeping
+	addiu sp, sp, -4
+	sw ra, 0x0(sp)
+	;do the function we hijacked
+	jal text_render			
+	nop
+
+	;--START--;
+	;___if (!voice active) return
+	la v0, voice_active
+	lbu v0, 0x0(v0)
+	nop
+	beq v0, zero, voice_return
+	nop
+	
+	;___if current_overlay not in voice_overlays, return
+	la t0, overlay_ID
+	lbu t0, 0x0(t0)
+	li t1, scene23_ID
+	beq t0, t1, execute_area_1
+	nop
+	li t1, scene24_ID
+	beq t0, t1, execute_area_2
+	nop
+	li t1, scene25_ID
+	beq t0, t1, execute_area_3
+	nop
+	j voice_return ;Not in the 3 areas
+	nop
+
+execute_area_1:
+	;Get current scene state, compare to all scripting
+	la t6, S23_sub
+	la t7, S23_scripting
+	j perform_subtitle
+	nop
+execute_area_2:
+	la t6, S24_sub
+	la t7, S24_scripting
+	j perform_subtitle
+	nop
+execute_area_3:
+	la t6, S25_sub
+	la t7, S25_scripting
+	j perform_subtitle
+	nop
+
+perform_subtitle:
+	;t6 holds text block start
+	;t7 holds scripting block start
+
+	;if current_state in scripted_subs:
+	;	set_text(0, pTextBlock, correct_index)
+	;else:
+	;	return
+	
+	lbu t0, 0x0(scene_state);t0 gets scene state
+	lbu t1, 0x1(scene_state) 
+	sll t1, t1, 0x8
+	lbu t2, 0x2(scene_state)
+	sll t2, t2, 0x10
+	lbu t3, 0x4(scene_state)
+	sll t3, t3, 0x18
+	addu t0, t1
+	addu t0, t2
+	addu t0, t3
+
+	addu  a3, t7,   0 	;a3 is script block ptr
+	addiu t5, zero, 0 	;t5 is index cursor
+
+script_check_loop_head:
+	lw a2, 0x0(a3)	;a2 gets next check block
+	la v0, 0xFFFFFFFF
+	beq a2, v0, voice_return	;Return if FFFFFFFF terminator reached
+	nop
+	beq a2, t0, check_timer	;goto check_timer if match
+	nop
+	addiu t5, t5, 1		;Increment index counter
+	j script_check_loop_head
+	addiu a3, a3, 0x8	;Increment scripting block ptr
+
+check_timer:
+	;if current_time == target_time:
+	;	goto print
+	;else:
+	;	return
+	lw t4, 0x4(a3)	;t4 gets target time
+	la t3, progress_timer
+	lw t3, 0x0(t3)	;t3 gets current_time
+	nop
+	beq t3, t4, print_subtitle
+	nop
+	j voice_return
+	nop
+
+
+	;t6 holds pTextBlock
+	;t5 holds index
+print_subtitle:
+	;set_text(0, void* pTextBlock, int index)
+	addiu a1, t6, 0x0
+	addiu a2, t5, 0x0
+	jal set_text
+	addiu a0, zero, 0x0
+
+	;return
+voice_return:
+	lw ra, 0x0(sp)
+	nop
+	jr ra
+	addiu sp, sp, 4
+
 .endarea
 .close
+

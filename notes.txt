@@ -206,3 +206,24 @@ C:\dev\roll\unpack\DAT\ST29\ST29-0x0000c800-1.bin
 C:\dev\roll\unpack\DAT\ST2001\ST2001-0x00014800-1.bin
 
 C:\dev\roll\unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin  @  0x7304
+
+
+Voice data.
+
+
+Standard MSG file at end of overlay T file
+
+Line timing files at freespace
+
+|ID for timer	|Line ID 0|							||Repeat
+[word scene_key][short start_frame][short end_frame]||Repeat
+
+
+subtitle formatting:
+
+Needed buffer?	instant text  ??	  box   XX  YYWW H    box type       ??          text            speed   lifetime
+10              {fb0900}      {fb29} {fb06005800be0c11}   {fb050108}   {fb1d} You caught a piglet! {fb0901}  {fb04003c}
+
+
+DEV ROOMS:
+1F: big roll and face Tron
