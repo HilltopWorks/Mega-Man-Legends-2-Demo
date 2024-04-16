@@ -157,12 +157,13 @@ def convertRawToText(dict, raw, escape_char = 0xFF):
         string += char
     return string
 
-
+kerning_file = open("vwf.bin", "rb")
 
 def convertTextToRaw(dict, text, terminator = b"\xFF"):
     '''string -> binary'''
     buffer = b""
 
+    text_box_size = (0,1)
     while True:
         if len(text) == 0:
             break
@@ -184,7 +185,17 @@ def convertTextToRaw(dict, text, terminator = b"\xFF"):
                 buffer += val.to_bytes(2, byteorder="big")
             else:
                 buffer += val.to_bytes(1, byteorder="big")
-                
+            
+            if text[0] == "\n":
+                text_box_size = (text_box_size[0], text_box_size[1] + 1)
+            elif val<0xF8:
+                kerning_file.seek(val)
+                glyph_width = int.from_bytes(kerning_file.read(1), "little")
+                text_box_size = (text_box_size[0] + glyph_width, text_box_size[1])
+            else:
+                glyph_width = 0xC
+                text_box_size = (text_box_size[0] + glyph_width, text_box_size[1])
+
             chars_read = 1
         except KeyError:
             print("INSERTION ERROR!!! CHAR: -" + text[0] + "- in " + text)
@@ -192,7 +203,7 @@ def convertTextToRaw(dict, text, terminator = b"\xFF"):
 
         text = text[chars_read:]
     
-    return buffer + terminator
+    return buffer + terminator, text_box_size
 
 
 

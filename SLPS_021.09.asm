@@ -17,25 +17,31 @@ scene25_start 	equ 0x1CAE0
 .open "unpack_edit/DAT/ST23T/ST23T-0x00000000-1.bin", 0x800e0000
 .org overlay_start + scene23_start
 S23_sub:
-.import "S23_sub.bin"
+.import "ST23T_sub.bin"
+.align 4
 S23_scripting:
-.import "S23_scripting.bin"
+.import "ST23T_scripting.bin"
+.align 4
 .close
 
 .open "unpack_edit/DAT/ST24T/ST24T-0x00000000-1.bin", 0x800e0000
 .org overlay_start + scene24_start
 S24_sub:
-.import "S24_sub.bin"
+.import "ST24T_sub.bin"
+.align 4
 S24_scripting:
-.import "S24_scripting.bin"
+.import "ST24T_scripting.bin"
+.align 4
 .close
 
 .open "unpack_edit/DAT/ST25T/ST25T-0x00000000-1.bin", 0x800e0000
 .org overlay_start + scene25_start
 S25_sub:
-.import "S25_sub.bin"
+.import "ST25T_sub.bin"
+.align 4
 S25_scripting:
-.import "S25_scripting.bin"
+.import "ST25T_scripting.bin"
+.align 4
 .close
 
 ; ----------------         CRC AREA START               --------------------
@@ -53,8 +59,8 @@ S25_scripting:
 
 .org voice_hijack
 	; TODO
-	; jal func_voice_sub
-	; nop
+	jal func_voice_sub
+	nop
 
 ;----------------------------------------------------------------------------------
 
@@ -178,10 +184,10 @@ perform_subtitle:
 	la a2, scene_state
 	lbu t0, 0x0(a2);t0 gets scene state
 	lbu t1, 0x1(a2) 
-	sll t1, t1, 0x8
 	lbu t2, 0x2(a2)
+	lbu t3, 0x3(a2)
+	sll t1, t1, 0x8
 	sll t2, t2, 0x10
-	lbu t3, 0x4(a2)
 	sll t3, t3, 0x18
 	addu t0, t1
 	addu t0, t2
@@ -205,15 +211,16 @@ check_timer:
 	;if current_time == target_time:
 	;	goto print
 	;else:
-	;	return
+	;	continue
 	lw t4, 0x4(a3)	;t4 gets target time
 	la t3, progress_timer
 	lw t3, 0x0(t3)	;t3 gets current_time
 	nop
 	beq t3, t4, print_subtitle
 	nop
-	j voice_return
-	nop
+	addiu a3, a3, 0x8
+	j script_check_loop_head
+	addiu t5, t5, 1		;Increment index counter
 
 
 	;t6 holds pTextBlock

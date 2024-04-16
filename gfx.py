@@ -256,7 +256,7 @@ tron_1P = {
 #ImageHill.convertImage(S23_2P, S23_1C, "S23_2.PNG", True)
 #ImageHill.convertImage(S25_1P, S25_1C, "S25_1.PNG", True)
 
-ImageHill.convertImage(tron_1P, tron_1C, "tron.PNG", True)
+#ImageHill.convertImage(tron_1P, tron_1C, "tron.PNG", True)
 
 space_width = 0x3
 

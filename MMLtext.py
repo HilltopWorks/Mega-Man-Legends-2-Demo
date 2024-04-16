@@ -1,6 +1,7 @@
 import TextHill
 import os
 from pathlib import Path
+import math
 
 chars1, vals1 = TextHill.readCharOrder("FONT\\font_order1.txt", 0, 0xF8)
 chars2, vals2 = TextHill.readCharOrder("FONT\\font_order2.txt", 0xF800)
@@ -256,7 +257,7 @@ def convertString(bytes):
     return string
 
 def convertRaw(string):
-    bytes = TextHill.convertTextToRaw(stock_char_dict, string, b"\xFF")
+    bytes, box_size = TextHill.convertTextToRaw(stock_char_dict, string, b"\xFF")
     print(bytes.hex())
     return bytes
 
@@ -350,7 +351,7 @@ def injectTextToBin(text_file_path):
 
             string_buffer = string_buffer.rstrip()
             
-            string_bytes = TextHill.convertTextToRaw(inject_char_dict, string_buffer)
+            string_bytes, box_size = TextHill.convertTextToRaw(inject_char_dict, string_buffer)
 
             body_buffer += string_bytes
             line_offset = (len(body_buffer) + n_line_entries*2)
@@ -360,6 +361,115 @@ def injectTextToBin(text_file_path):
         injected_bin[src_line] = header_buffer + body_buffer
 
     return injected_bin
+
+FPS = 60
+
+def timestampsToFrameCount(start, end):
+    start_hour = int(start[0])
+    start_minute = int(start[2:4])
+    start_second = int(start[5:7])
+    start_millisecond = int(start[8:10])
+
+    end_hour = int(end[0])
+    end_minute = int(end[2:4])
+    end_second = int(end[5:7])
+    end_millisecond = int(end[8:10])
+    
+    lifetime = (end_hour - start_hour)*60*60*FPS
+    lifetime += (end_minute - start_minute)*60*FPS
+    lifetime += (end_second - start_second)*FPS
+    lifetime += int((end_millisecond - start_millisecond)*FPS/100)
+    return lifetime
+
+voice_file_header = "//Scene:"
+
+def injectVoiceSub(text_file_path):
+    text_file = open(text_file_path, "r", encoding="utf8")
+    text_blob = text_file.read()
+
+    files = text_blob.split(voice_file_header)
+
+    for file_text in files[1:]:
+
+        header_buffer = b""
+        body_buffer = b""
+
+        scripting_buffer = b""
+
+        src_line = file_text.split("\n")[0].strip()
+        inject_path = src_line.split(",")[0]
+
+        scene_name = inject_path.split("/")[-2]
+
+        lines = file_text.split("\n")[1:]
+
+        inject_lines = []
+
+        
+        for line in lines:
+            string_buffer = ""
+            if line.startswith("//") or "Dialogue" not in line:
+                continue
+
+            string_buffer = line.split(",")[-1].rstrip().replace("\\N", "\n")
+
+            string_bytes, box_size = TextHill.convertTextToRaw(inject_char_dict, string_buffer)
+
+            front_buffer = b"\x01\x00"
+            instant_text = b"\xfb\x09\x00"
+            unknown1 = b"\xfb\x29"
+
+            screen_width = 332
+            start_X = int(screen_width/2 - (box_size[0]/2))
+            start_Y = int(0xBE - box_size[1]/2)
+            box = b"\xfb\x06" + start_X.to_bytes(2, "big") + start_Y.to_bytes(2, "big") + math.ceil(box_size[0]/0xC).to_bytes(1, "little") + (0x10 | box_size[1]).to_bytes(1, "little")
+            
+            box_type = b"\xfb\x05\x01\x08"
+            unknown2 = b"\xfb\x1d"
+
+            single_speed_text = b"\xfb\x09\x01"
+            
+            start_timestamp = line.split(",")[1]
+            end_timestamp = line.split(",")[2]
+
+            ID_1 = int(line.split(",")[4], base=16)
+            ID_2 = int(line.split(",")[5], base=16)
+            ID_3 = int(line.split(",")[6], base=16)
+            ID_4 = int(line.split(",")[7], base=16)
+
+            frame_ID = ID_1 | (ID_2 << 8) | (ID_3 << 16) | (ID_4 << 24)
+            start_frame = int(line.split(",")[8], base=16)
+
+            scripting_buffer += frame_ID.to_bytes(4, "little")
+            scripting_buffer += start_frame.to_bytes(4, "little")
+
+            
+
+            frame_lifetime = timestampsToFrameCount(start_timestamp, end_timestamp)
+            
+            pause = b"\xfb\x08" +  frame_lifetime.to_bytes(2, "big")
+            lifetime = b"\xfb\x04" + frame_lifetime.to_bytes(2, "big")
+            terminator = b"\xFF"
+            #string_bytes = front_buffer + instant_text + unknown1 + box + box_type + unknown2 + string_bytes + single_speed_text + pause + lifetime + terminator
+            string_bytes = front_buffer + single_speed_text + box + string_bytes + pause + terminator
+            inject_lines.append(string_bytes)
+
+        header_buffer += ((len(inject_lines))*2).to_bytes(2, "little")
+        body_buffer += inject_lines[0]
+        
+        for i in range(len(inject_lines)-1):
+            cursor = len(body_buffer) + (len(inject_lines))*2
+            header_buffer += cursor.to_bytes(2, "little")
+            body_buffer += inject_lines[i+1]
+
+        inject_file = open(scene_name + "_sub.bin", "wb")
+        scripting_file = open(scene_name + "_scripting.bin", "wb")
+        scripting_file.write(scripting_buffer + 0xFFFFFFFF.to_bytes(4, "little"))
+        inject_file.write(header_buffer + body_buffer)
+        scripting_file.close()
+        inject_file.close()
+
+    return
 
 def applyLoad(address, loads, exe_file, exe_offset):
 
@@ -465,7 +575,8 @@ def injectAll(text_file_path, exe_path):
     for x in range(len(subsc_loads)):
         applyLoad(subsc_text_start + cursor, subsc_loads[x], subscr_file, subsc_bin_start )
         cursor += subscr_sizes[x]
-
+    
+    injectVoiceSub("recieved\\MML_sub_text.txt")
     return
 
 
