@@ -2,6 +2,7 @@ import TextHill
 import os
 from pathlib import Path
 import math
+import shutil
 
 chars1, vals1 = TextHill.readCharOrder("FONT\\font_order1.txt", 0, 0xF8)
 chars2, vals2 = TextHill.readCharOrder("FONT\\font_order2.txt", 0xF800)
@@ -362,7 +363,7 @@ def injectTextToBin(text_file_path):
 
     return injected_bin
 
-FPS = 60
+FPS = 30
 
 def timestampsToFrameCount(start, end):
     start_hour = int(start[0])
@@ -398,6 +399,9 @@ def injectVoiceSub(text_file_path):
 
         src_line = file_text.split("\n")[0].strip()
         inject_path = src_line.split(",")[0]
+        src_path = inject_path.replace("unpack_edit", "unpack")
+
+        shutil.copy(src_path, inject_path)
 
         scene_name = inject_path.split("/")[-2]
 
@@ -411,24 +415,30 @@ def injectVoiceSub(text_file_path):
             if line.startswith("//") or "Dialogue" not in line:
                 continue
 
-            string_buffer = line.split(",")[-1].rstrip().replace("\\N", "\n")
+            string_buffer = line.split(",", 9)[-1].rstrip().replace("\\N", "\n")
 
             string_bytes, box_size = TextHill.convertTextToRaw(inject_char_dict, string_buffer)
 
-            front_buffer = b"\x01\x00"
-            instant_text = b"\xfb\x09\x00"
+            front_buffer = b"\x05\x00"
+            
             unknown1 = b"\xfb\x29"
+            unknownA = b"\xfb\x2d\x01"
+            unknownB = b"\xfd\x00\x02\x00\x00"
+            unknownC = b"\xfb\x0c"
 
             screen_width = 332
             start_X = int(screen_width/2 - (box_size[0]/2))
             start_Y = int(0xBE - box_size[1]/2)
-            box = b"\xfb\x06" + start_X.to_bytes(2, "big") + start_Y.to_bytes(2, "big") + math.ceil(box_size[0]/0xC).to_bytes(1, "little") + (0x10 | box_size[1]).to_bytes(1, "little")
+            #box = b"\xfb\x06" + start_X.to_bytes(2, "big") + start_Y.to_bytes(2, "big") + math.ceil(box_size[0]/0xC).to_bytes(1, "little") + (0x10 | box_size[1]).to_bytes(1, "little")
+            box = b"\xfb\x06" + start_X.to_bytes(2, "big") + start_Y.to_bytes(2, "big") + math.ceil(box_size[0]/0xC).to_bytes(1, "little") + (box_size[1]).to_bytes(1, "little")
             
             box_type = b"\xfb\x05\x01\x08"
             unknown2 = b"\xfb\x1d"
 
+            instant_text = b"\xfb\x09\x00"
             single_speed_text = b"\xfb\x09\x01"
-            
+            slow_speed_text = b"\xfb\x09\xFF"
+
             start_timestamp = line.split(",")[1]
             end_timestamp = line.split(",")[2]
 
@@ -450,8 +460,10 @@ def injectVoiceSub(text_file_path):
             pause = b"\xfb\x08" +  frame_lifetime.to_bytes(2, "big")
             lifetime = b"\xfb\x04" + frame_lifetime.to_bytes(2, "big")
             terminator = b"\xFF"
-            #string_bytes = front_buffer + instant_text + unknown1 + box + box_type + unknown2 + string_bytes + single_speed_text + pause + lifetime + terminator
-            string_bytes = front_buffer + single_speed_text + box + string_bytes + pause + terminator
+            #10{fb2d01}{fb0900}{fb06006200b40c11}{fb050108}You used the key!{fb0901}{fb08002d}{fd00020000}{fb0c}{fb260581}
+
+            string_bytes = front_buffer + instant_text + unknown1 + box + box_type + unknown2 + string_bytes[:-1] + single_speed_text + lifetime + terminator
+
             inject_lines.append(string_bytes)
 
         header_buffer += ((len(inject_lines))*2).to_bytes(2, "little")
@@ -579,7 +591,7 @@ def injectAll(text_file_path, exe_path):
     injectVoiceSub("recieved\\MML_sub_text.txt")
     return
 
-
+#injectVoiceSub("recieved\\MML_sub_text.txt")
 #make_control_code_list()
 #convertMSG("src\\DAT\\ST22.BIN", 0x18830)
 #convertMSG("unpack\DAT\ST24\ST24-0x00026800-1.bin", 0)

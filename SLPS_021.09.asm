@@ -129,9 +129,7 @@ func_voice_sub:
 	;housekeeping
 	addiu sp, sp, -4
 	sw ra, 0x0(sp)
-	;do the function we hijacked
-	jal text_render			
-	nop
+	
 
 	;--START--;
 	;___if (!voice active) return
@@ -230,10 +228,13 @@ print_subtitle:
 	addiu a1, t6, 0x0
 	addiu a2, t5, 0x0
 	jal set_text
-	addiu a0, zero, 0x0
+	addiu a0, zero, -1
 
 	;return
 voice_return:
+	;do the function we hijacked
+	jal text_render			
+	nop
 	lw ra, 0x0(sp)
 	nop
 	jr ra
