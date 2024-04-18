@@ -164,6 +164,7 @@ def convertTextToRaw(dict, text, terminator = b"\xFF"):
     buffer = b""
 
     text_box_size = (0,1)
+    current_line_width = 0
     while True:
         if len(text) == 0:
             break
@@ -188,13 +189,18 @@ def convertTextToRaw(dict, text, terminator = b"\xFF"):
             
             if text[0] == "\n":
                 text_box_size = (text_box_size[0], text_box_size[1] + 1)
+                current_line_width = 0
             elif val<0xF8:
                 kerning_file.seek(val)
-                glyph_width = int.from_bytes(kerning_file.read(1), "little")
-                text_box_size = (text_box_size[0] + glyph_width, text_box_size[1])
+                glyph_width = int.from_bytes(kerning_file.read(1), "little") + 1
+                current_line_width += glyph_width
+                if current_line_width > text_box_size[0] + glyph_width:
+                    text_box_size = (text_box_size[0] + glyph_width, text_box_size[1])
             else:
-                glyph_width = 0xC
-                text_box_size = (text_box_size[0] + glyph_width, text_box_size[1])
+                glyph_width = 0xC + 1
+                current_line_width += glyph_width
+                if current_line_width > text_box_size[0] + glyph_width:
+                    text_box_size = (text_box_size[0] + glyph_width, text_box_size[1])
 
             chars_read = 1
         except KeyError:

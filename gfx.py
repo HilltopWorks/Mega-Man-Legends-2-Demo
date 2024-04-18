@@ -179,9 +179,7 @@ gover4P = {
                         }
 
 
-#Scene 23
-
-#### Game Over
+###Scene 23
 S23_1C =          {
                             "CLUT_FILE":r"unpack\DAT\ST23T\ST23T-0x00043800-3.uncomp.bin",
                             "CLUT_OFFSET":0,
@@ -207,6 +205,7 @@ S23_2P = {
                             "PXL_MODE":ImageHill.FOUR_BIT
                         }
 
+###Scene 25
 S25_1C =          {
                             "CLUT_FILE":r"unpack\DAT\ST25T\ST25T-0x0004d800-3.uncomp.bin",
                             "CLUT_OFFSET":0,
@@ -243,6 +242,29 @@ tron_1P = {
                             "PXL_MODE":ImageHill.FOUR_BIT
                         }
 
+def inject_subsc():
+    image_edits = ["gfx\\subsc1.png", "gfx\\subsc2.png", "gfx\\subsc3.png", "gfx\\subsc4.png" ]
+    images = [subsc1P, subsc2P, subsc3P, subsc4P]
+    for image_index in range(len(images)):
+        
+        images[image_index]["PXL_FILE"] = images[image_index]["PXL_FILE"].replace("unpack", "unpack_edit")
+        ImageHill.injectImage(images[image_index], subscC, image_edits[image_index])
+
+    return
+
+def inject_scene():
+    image_edits = ["gfx\\S23_1_edit.png", "gfx\\S23_2_edit.png", "gfx\\S25_1_edit.png" ]
+    images = [S23_1P, S23_2P, S25_1P]
+    cluts  = [S23_1C, S23_1C, S25_1C]
+    for image_index in range(len(images)):
+        images[image_index]["PXL_FILE"] = images[image_index]["PXL_FILE"].replace("unpack", "unpack_edit")
+        ImageHill.injectImage(images[image_index], cluts[image_index], image_edits[image_index])
+
+    return
+
+
+
+
 #ImageHill.convertImage(subsc4P_USA, subscC, "subsc4_USA.PNG", True)
 #ImageHill.convertImage(subsc3P_USA, subscC, "subsc3_USA.PNG", True)
 #ImageHill.convertImage(subsc2P_USA, subscC, "subsc2_USA.PNG", True)
@@ -258,7 +280,7 @@ tron_1P = {
 
 #ImageHill.convertImage(tron_1P, tron_1C, "tron.PNG", True)
 
-space_width = 0x3
+space_width = 0x5
 
 def get_vwf(font_path, vwf_bin_path, glyph_w, glyph_h, n_rows, n_columns):
     font_im = Image.open(font_path)

@@ -14,24 +14,40 @@ scene24_start 	equ 0x12850
 scene25_ID 		equ 0x1D
 scene25_start 	equ 0x1CAE0
 
-.open "unpack_edit/DAT/ST23T/ST23T-0x00000000-1.bin", 0x800e0000
-.org overlay_start + scene23_start
+; ------------- Define area for VWF table and new functions
+.definelabel freespace_text_1_start, 0x80010660		;vwf table and code
+freespace_text_1_size equ 0x2a8
+
+.definelabel freespace_text_2_start, 0x8001091C
+freespace_text_2_size equ 0x4BC
+
+.definelabel freespace_library_start, 0x80065B5C	;ST23, 24
+freespace_library_size equ 0xFE0
+
+;.open "unpack_edit/DAT/ST23T/ST23T-0x00000000-1.bin", 0x800e0000
+;.org overlay_start + scene23_start
+.open "src_edit/SLPS_021.09",0x8000f800
+
+.org freespace_library_start
+.area freespace_library_size
 S23_sub:
 .import "ST23T_sub.bin"
 .align 4
 S23_scripting:
 .import "ST23T_scripting.bin"
 .align 4
-.close
 
-.open "unpack_edit/DAT/ST24T/ST24T-0x00000000-1.bin", 0x800e0000
-.org overlay_start + scene24_start
+;.close
+
+;.open "unpack_edit/DAT/ST24T/ST24T-0x00000000-1.bin", 0x800e0000
+;.org overlay_start + scene24_start
 S24_sub:
 .import "ST24T_sub.bin"
 .align 4
 S24_scripting:
 .import "ST24T_scripting.bin"
 .align 4
+.endarea
 .close
 
 .open "unpack_edit/DAT/ST25T/ST25T-0x00000000-1.bin", 0x800e0000
@@ -58,7 +74,6 @@ S25_scripting:
 .definelabel text_render, 0x8003e640
 
 .org voice_hijack
-	; TODO
 	jal func_voice_sub
 	nop
 
@@ -78,12 +93,19 @@ S25_scripting:
 	jr v0
 	nop
 
-; ------------- Define area for VWF table and new functions
 
-.definelabel freespace_start, 0x80010660
 
-.org freespace_start
-.area 0x770
+
+;Skip clearing space after EXE
+.org 0x8004f32c
+nop
+
+
+; --------------- New code area
+
+
+.org freespace_text_1_start
+.area freespace_text_1_size
 
 vwf_table:
 .import "vwf.bin"
@@ -113,6 +135,8 @@ end_vwf:
 	jr t1					;RETURN
 	lui v1, 0xFF			;Moved instruction
 
+;-------------------.endarea
+
 .definelabel render_text, 	0x8003dee4	;render_text(int position, void* pTextBlock, int line_id, int kerning)
 											;position & 0x3FF  => X
 											;(position >> 10) & 0x1FF => Y
@@ -123,13 +147,17 @@ end_vwf:
 .definelabel scene_state,	0x80070a59	;4 bytes
 .definelabel progress_timer,0x80070a74	;Int
 
-
+;.org freespace_2_start
+;.area freespace_2_size
 
 func_voice_sub:
 	;housekeeping
 	addiu sp, sp, -4
 	sw ra, 0x0(sp)
 	
+	;do the function we hijacked
+	jal text_render			
+	nop
 
 	;--START--;
 	;___if (!voice active) return
@@ -232,9 +260,6 @@ print_subtitle:
 
 	;return
 voice_return:
-	;do the function we hijacked
-	jal text_render			
-	nop
 	lw ra, 0x0(sp)
 	nop
 	jr ra
