@@ -4,9 +4,9 @@
 //20{fb2c00}{fb1501000000a000a00080}{fb2b}{fb06002400a41312}{fb050008}ゲームがストップしたら、すぐにソフト
 //の人にれんらくしなきゃ・・・{fb18}{fd00020200}・・・
 //まさかそんなこと無いと思うけど・・・{fb24}{fb31}{fb2c01}
-20{fb2c00}{fb1501000000a000a00080}{fb2b}{fb06002400a41312}{fb050008}If the game crashes, we'll have
-to tell a developer right away!{fb18}{fd00020200}
-I mean, it shouldn't come to that, but...{fb24}{fb31}{fb2c01}
+20{fb2c00}{fb1501000000a000a00080}{fb2b}{fb06002400a41312}{fb050008}If the game crashes, you have
+to tell a developer right away!{fb18}{fd00020200}I mean, it should never happen,
+but...{fb24}{fb31}{fb2c01}
 
 //LINE 001
 //30{fb1501ff00010002000080}{fb2b}{fb06003000401233}{fb050008}もうすぐ冬休み・・・
@@ -14,17 +14,17 @@ I mean, it shouldn't come to that, but...{fb24}{fb31}{fb2c01}
 //いそがしくなると思うから、
 //ゆっくり休んでね{fb24}{fb31}
 30{fb1501ff00010002000080}{fb2b}{fb06003000401233}{fb050008}Winter break is coming up.
-How should we pass the time?{fb18}{fd00020700}The new year will be off to a running start
-for all of us, I imagine.
-Maybe rest is best!{fb24}{fb31}
+How should we pass the time?{fb18}{fd00020700}The new year will be off to a
+running start for all of us, I
+imagine. Maybe rest is best!{fb24}{fb31}
 
 //LINE 002
 //30{fb2c00}{fb1501000000a000a00080}{fb2b}{fb06003800a41023}{fb050008}何か気のきいたセリフを
 //言いたいんだけど思いつかないの
 //{fb080008}・{fb080008}・{fb080008}・{fb080008}ごめんね{fb24}{fb31}{fb2c01}
 30{fb2c00}{fb1501000000a000a00080}{fb2b}{fb06003800a41023}{fb050008}I want to say something
- clever, but I'm out of ideas!
-{fb080008}.{fb080008}.{fb080008}.{fb080008} Nope. Still nothing.{fb24}{fb31}{fb2c01}
+clever, but I'm out of ideas!
+{fb080008}.{fb080008}.{fb080008}.{fb080008}Nope. Still nothing.{fb24}{fb31}{fb2c01}
 
 //LINE 003
 //30{fb15010100010002000080}{fb2b}{fb06003000401024}{fb050008}バーの中にある
@@ -34,21 +34,22 @@ Maybe rest is best!{fb24}{fb31}
 30{fb15010100010002000080}{fb2b}{fb06003000401024}{fb050008}Have you seen the neon
 sign inside of the restaurant?
 
-   {fb0f00}Yes  {fb0f01}No{fb100203030803}{fb11020d0e}
+      {fb0f00}Yes    {fb0f01}No{fb100203030803}{fb11020d0e}
 
 //LINE 004
 //10{fb2c00}{fb1501000000a000a00080}{fb2b}{fb06005000a40d11}{fb050008}話しかけんじゃね〜よ!!{fb18}{fd00020000}おどろいた?{fb24}{fb31}{fb2c01}
-10{fb2c00}{fb1501000000a000a00080}{fb2b}{fb06005000a40d11}{fb050008}Don't talk to me!{fb18}{fd00020000}... Did I sound intimidating enough?{fb24}{fb31}{fb2c01}
+10{fb2c00}{fb1501000000a000a00080}{fb2b}{fb06005000a40d12}{fb050008}Don't talk to me!{fb18}{fd00020000}...Did I sound intimidating
+enough?{fb24}{fb31}{fb2c01}
 
 //LINE 005
 //00{fb15010100010002000080}{fb2b}{fb06003000400f04}{fb050008}ロールちゃんとトロンちゃんと
 //どっちがすき?
 // {fb0f00}ロールちゃん
 // {fb0f01}トロンちゃん{fb100201020103}{fb11020f10}
-00{fb15010100010002000080}{fb2b}{fb06003000400f04}{fb050008}Which girl do you like:
- Roll or Tron?
- {fb0f00}Roll
- {fb0f01}Tron{fb100201020103}{fb11020f10}
+00{fb15010100010002000080}{fb2b}{fb06003000400f04}{fb050008}Which girl do you like more:
+Roll or Tron?
+  {fb0f00}Roll
+  {fb0f01}Tron{fb100201020103}{fb11020f10}
 
 //LINE 006
 //00{fb2c00}{fb1501000000a000a00080}{fb2b}{fb06003000a41113}{fb050008}・・・・・・・・・・・・・・・・
@@ -57,8 +58,8 @@ sign inside of the restaurant?
 //あたしが何か言うと思った?{fb18}{fd00020000}{fb2c01}
 00{fb2c00}{fb1501000000a000a00080}{fb2b}{fb06003000a41113}{fb050008}... ... ... ... 
 ... ... ... ... 
-... ... ... ... {fb18}{fd00020200}
-What, did you think I was going to say something?{fb18}{fd00020000}{fb2c01}
+... ... ... ... {fb18}{fd00020200}What, did you think I was going
+to say something?{fb18}{fd00020000}{fb2c01}
 
 //LINE 007
 //00{fb06004c00400e02}{fb050208}{fb1e0404}コブン1「ボクたちはボーン一家だぞ{fb18}{fd00000000} 空賊だぞ
@@ -102,29 +103,33 @@ to find the other two!{fb18}{fd00020100}I wonder if anyone saw something...{fb24
 
 //LINE 013
 //10{fb06003c00400d11}{fb050008}  へぇ〜物知りだね  {fb24}{fb31}
-10{fb06003c00400d11}{fb050008}  Wow, you sure know your stuff!  {fb24}{fb31}
+10{fb06003c00400d12}{fb050008}Wow, you sure know
+your stuff!{fb24}{fb31}
 
 //LINE 014
 //00{fb06003c00400c01}{fb050008}  おっくれてる〜  {fb24}{fb31}
-00{fb06003c00400c01}{fb050008}  Get with the times!  {fb24}{fb31}
+00{fb06003c00400c01}{fb050008}Get with the times!{fb24}{fb31}
 
 //LINE 015
 //10{fb06003c00400f11}{fb050008}「DASH2」楽しみじゃの〜{fb24}{fb31}
-10{fb06003c00400f11}{fb050008}Then you'll LOVE "MegaMan Legends 2"!{fb24}{fb31}
+10{fb06003c00400f12}{fb050008}Then you'll LOVE
+"Mega Man Legends 2"!{fb24}{fb31}
 
 //LINE 016
 //10{fb06003c00401111}{fb050008}「トロンにコブン」を楽しみにね!{fb24}{fb31}
-10{fb06003c00401111}{fb050008}We hope you've enjoyed "The Misadventures of Tron Bonne!"{fb24}{fb31}
+10{fb06003600401212}{fb050008}We hope you've enjoyed "The
+Misadventures of Tron Bonne!"{fb24}{fb31}
 
 //FILE SET unpack\DAT\ST20\ST20-0x00014800-1.bin
 
 //LINE 000
 //10{fb06003a00b41211}{fb050108}外に出るのは話を聞いてからにしよう{fb24}{fb31}
-10{fb06003a00b41211}{fb050108}Talk to the girl before heading outside!{fb24}{fb31}
+10{fb06002a00b41411}{fb050108}Talk to the girl before heading out!{fb24}{fb31}
 
 //LINE 001
 //10{fb06005800b40d11}{fb050108}壊れていて開かない{fb080008}・{fb080008}・{fb080008}・{fb24}{fb31}
-10{fb06005800b40d11}{fb050108}It's crushed and inoperable{fb080008}.{fb080008}.{fb080008}.{fb24}{fb31}
+10{fb06005800b40d12}{fb050108}It's broken and
+inoperable{fb080008}.{fb080008}.{fb080008}.{fb24}{fb31}
 
 //LINE 002
 //70{fb2805a005ff}{fb2c00}{fb15010000002000c00088}{fb2b}{fb06003400901333}{fb050108}{fb3383}……ブタブタブタブタブタブタブタブタ
@@ -159,8 +164,8 @@ for the Reaverbots nearby!{fb18}{fd00020300}When you see a piglet, press the
 {fb2203} to catch it from behind!{fb18}{fd00020300}If one notices you,
 it'll run away.{fb18}{fd00020700}The {fb2200} activates your Lifter.
 Don't lift and throw my piglets!
-Press {fb2203} to catch!{fb18}{fd00020700}It's easy to get mixed up, but you
-press {fb2200} to lift and throw!{fb18}{fd00020700}There are four piglets to find.
+Press {fb2203} to catch!{fb18}{fd00020700}It's easy to get mixed up, but the
+{fb2200} won't capture them!{fb18}{fd00020700}There are four piglets to find.
 If you forget any of this,
 come ask me!{fb18}{fd00020200}
 Good luck! I'll be waiting!{fb24}{fb31}{fb2c01}
@@ -255,7 +260,7 @@ ever repay you?{fb120111}{fb0701}
 //LINE 017
 //00{fb06003900a70902}{fb050108}{fb0900}{fb0f00}キスしてもらう
 //{fb0f01}べつにいらない{fb100200000001}
-00{fb06003900a70902}{fb050108}{fb0900}{fb0f00}One kiss!
+00{fb06003900a70902}{fb050108}{fb0900}{fb0f00}I want a kiss!
 {fb0f01}I want nothing!{fb100200000001}
 
 //LINE 018
@@ -275,8 +280,7 @@ Well, close your eyes{fb080008}.{fb080008}.{fb080008}.{fb04000f}
 //何も言わず目をつぶって{fb080008}・{fb080008}・{fb080008}・{fb04000f}
 50{fb06001000260f23}{fb050108}{fb29}{fb0901}Aww, don't say that.
 That's a good way to
-hurt a girl's feelings!{fd000f0200}{fb0901}Now, don't say a word.
-Just close your eyes{fb080008}.{fb080008}.{fb080008}.{fb04000f}
+hurt a girl's feelings!{fd000f0200}{fb0901}Now, close your eyes{fb080008}.{fb080008}.{fb080008}.{fb04000f}
 
 //LINE 021
 //00{fb0900}{fb3000}{fb06003c00a00802}{fb050108}ロック
@@ -308,21 +312,21 @@ Just close your eyes{fb080008}.{fb080008}.{fb080008}.{fb04000f}
 
 //LINE 000
 //10{fb28059001ff}{fb0900}{fb06007000b40911}{fb050108}鍵がかかっている{fb24}{fb31}
-10{fb28059001ff}{fb0900}{fb06007000b40911}{fb050108}It's locked.{fb24}{fb31}
+10{fb28059001ff}{fb0900}{fb06008000b40611}{fb050108}It's locked.{fb24}{fb31}
 
 //LINE 001
 //10{fb2d01}{fb0900}{fb06008200b40611}{fb050108}鍵を使った{fb0901}{fb08002d}{fd00020000}{fb0c}{fb260581}
-10{fb2d01}{fb0900}{fb06008200b40611}{fb050108}You used the key!{fb0901}{fb08002d}{fd00020000}{fb0c}{fb260581}
+10{fb2d01}{fb0900}{fb06006200b40a11}{fb050108}You used the key!{fb0901}{fb08002d}{fd00020000}{fb0c}{fb260581}
 
 //FILE SET unpack\DAT\ST24\ST24-0x00026800-1.bin
 
 //LINE 000
 //10{fb28059101ff}{fb0900}{fb06007000b40911}{fb050108}鍵がかかっている{fb24}{fb31}
-10{fb28059101ff}{fb0900}{fb06007000b40911}{fb050108}It's locked.{fb24}{fb31}
+10{fb28059101ff}{fb0900}{fb06008000b40611}{fb050108}It's locked.{fb24}{fb31}
 
 //LINE 001
 //10{fb2d01}{fb0900}{fb06008200b40611}{fb050108}鍵を使った{fb0901}{fb08002d}{fd00020000}{fb0c}{fb260584}
-10{fb2d01}{fb0900}{fb06008200b40611}{fb050108}You used the key!{fb0901}{fb08002d}{fd00020000}{fb0c}{fb260584}
+10{fb2d01}{fb0900}{fb06006200b40a11}{fb050108}You used the key!{fb0901}{fb08002d}{fd00020000}{fb0c}{fb260584}
 
 //LINE 002
 //30{fb06005200340e22}{fb050108}足もと注意!
@@ -368,7 +372,8 @@ Life Gauge recharged!{fb24}{fb31}{fb3400a0}
 
 //LINE 005
 //10{fb06004600b41011}{fb050108}ボスを倒してお宝を手に入れろ!{fb24}{fb31}
-10{fb06004600b41011}{fb050108}Claim the treasure!{fb24}{fb31}
+10{fb06006200b40b12}{fb050108}Defeat the boss and
+claim the treasure!{fb24}{fb31}
 
 //FILE SET unpack\DAT\ST28\ST28-0x00014000-1.bin
 
@@ -418,7 +423,7 @@ Do you remember your controls?
 //10{fb06002e00ac1422}{fb050108}ほうほう、感心じゃ{fb080008}・{fb080008}・{fb080008}・{fb080008}{fb18}{fd00020300}おや? こんどは「持ち上げ」ができる
 //ようになったんじゃな? 頼もしいのう!{fb18}{fd00020300}おおっと、わしを持ち上げることは
 //できんぞい! おもに敵じゃな{fb24}{fb31}{fb2c01}
-10{fb06002e00ac1422}{fb050108}Hah! I thought as much{fb080008}.{fb080008}.{fb080008}.{fb080008}{fb18}{fd00020300}Have you tested your handy Lifters 
+10{fb06002e00ac1422}{fb050108}Hah! I thought as much{fb080008}.{fb080008}.{fb080008}.{fb080008}{fb18}{fd00020300}Have you tested your handy Lifter
 yet?{fb18}{fd00020300}Sorry, but there's no lifting me!
 Go try lifting some enemies.{fb24}{fb31}{fb2c01}
 
@@ -472,11 +477,12 @@ To talk, press the {fb2203}.{fb18}{fd00020100}{fb0c}{fb06004400ac1012}{fb050108}
 
 //LINE 000
 //10{fb06003a00b41211}{fb050108}外に出るのは話を聞いてからにしよう{fb24}{fb31}
-10{fb06002a00b41411}{fb050108}Talk to the girl before heading outside!{fb24}{fb31}
+10{fb06002a00b41411}{fb050108}Talk to the girl before heading out!{fb24}{fb31}
 
 //LINE 001
 //10{fb06005800b40d11}{fb050108}壊れていて開かない{fb080008}・{fb080008}・{fb080008}・{fb24}{fb31}
-10{fb06005800b40d11}{fb050108}It's crushed and inoperable{fb080008}.{fb080008}.{fb080008}.{fb24}{fb31}
+10{fb06005800b40d12}{fb050108}It's broken and
+inoperable{fb080008}.{fb080008}.{fb080008}.{fb24}{fb31}
 
 //LINE 002
 //70{fb2805a005ff}{fb2c00}{fb15010000002000c00088}{fb2b}{fb06003400901333}{fb050108}{fb3383}……ブタブタブタブタブタブタブタブタ
@@ -609,7 +615,7 @@ ever repay you?{fb120111}{fb0701}
 //LINE 017
 //00{fb06003900a70902}{fb050108}{fb0900}{fb0f00}キスしてもらう
 //{fb0f01}べつにいらない{fb100200000001}
-00{fb06003900a70902}{fb050108}{fb0900}{fb0f00}One kiss!
+00{fb06003900a70902}{fb050108}{fb0900}{fb0f00}I want a kiss!
 {fb0f01}I want nothing!{fb100200000001}
 
 //LINE 018
@@ -629,8 +635,7 @@ Well, close your eyes{fb080008}.{fb080008}.{fb080008}.{fb04000f}
 //何も言わず目をつぶって{fb080008}・{fb080008}・{fb080008}・{fb04000f}
 50{fb06001000260f23}{fb050108}{fb29}{fb0901}Aww, don't say that.
 That's a good way to
-hurt a girl's feelings!{fd000f0200}{fb0901}Now, don't say a word.
-Just close your eyes{fb080008}.{fb080008}.{fb080008}.{fb04000f}
+hurt a girl's feelings!{fd000f0200}{fb0901}Now, close your eyes{fb080008}.{fb080008}.{fb080008}.{fb04000f}
 
 //LINE 021
 //00{fb0900}{fb3000}{fb06003c00a00802}{fb050108}ロック
@@ -914,7 +919,7 @@ Range +3
 
 //LINE 066
 //00ロックの主カ武器です
-00MegaMan's main weapon
+00A powerful weapon.
 
 //LINE 067
 //00重カ弾ついての説明
@@ -923,8 +928,8 @@ Range +3
 //LINE 068
 //00強カなダメージを与えます
 //攻撃中、ロックは動くことができません
-00A powerful weapon, but
-cannot fire during Lock-On.
+00Good firepower and range, but
+cannot be fired while moving.
 
 //LINE 069
 //00ロックバズーカについての説明
@@ -932,7 +937,8 @@ cannot fire during Lock-On.
 
 //LINE 070
 //00ホーミング弾を撃つことができます
-00Homing Missile fire ready!
+00Fires missiles that track
+their target.
 
 //LINE 071
 //00特殊武器Dについての説明
@@ -1297,7 +1303,7 @@ cannot fire during Lock-On.
 //LINE 161
 //00{fb2203}を押し続けると
 //ローラーダッシュができます
-00 Press the {fb2203}
+00Press the {fb2203}
 to activate Roller Dash!
 
 //LINE 162
@@ -2190,23 +2196,23 @@ to activate Roller Dash!
 
 //LINE 384
 //00特殊武器を装備していません
-00Special Weapon not equipped
+00No Special Weapon equipped
 
 //LINE 385
 //00バスターパーツを装備できます
-00Buster Parts equippable!
+00No Buster Parts equipped
 
 //LINE 386
 //00ヘルメットを装備できます
-00Helmet equippable!
+00No Helmet equipped
 
 //LINE 387
 //00アーマーを装備できます
-00Armor equippable!
+00No Armor equipped
 
 //LINE 388
 //00シューズを装備できます
-00Shoes equippable!
+00No Shoes equipped
 
 //FILE SET unpack\DAT\ST27T\ST27T-0x00002000-1.bin
 
@@ -2289,8 +2295,8 @@ Servbots in the room.{fb18}{fd00020100}{fb0c}{fb06005000980e12}{fb050108}Want to
 // {fb0f00}いいえ {fb0f01}はい{fb100201010601}{fb1102ff07}
 30{fb06003200a81223}{fb050108}Moving the {fb2209} lets you
 look around. Reset the camera
-with the {fb2208}.{fb18}{fd00020100}There's nothing in your current
-room, so try looking around!{fb18}{fd00020100}{fb0c}{fb06005000980e12}{fb050108}Want to hear that again?
+with the {fb2208}.{fb18}{fd00020100}Your current room is a safe
+spot, so try looking around!{fb18}{fd00020100}{fb0c}{fb06005000980e12}{fb050108}Want to hear that again?
  {fb0f00} No {fb0f01}    Yes{fb100201010601}{fb1102ff07}
 
 //LINE 008
@@ -2302,12 +2308,12 @@ room, so try looking around!{fb18}{fd00020100}{fb0c}{fb06005000980e12}{fb050108}
 //「持ち上げ」はできないよ
 //場合によって使いわけるってことね{fb18}{fd00020100}{fb0c}{fb06006400980b12}{fb050108}もう一回説明を聞く?
 // {fb0f00}いいえ {fb0f01}はい{fb100201010601}{fb1102ff08}
-70{fb06002800901533}{fb050108}Next up are your Lifters!
+70{fb06002800901533}{fb050108}Next up is your Lifter!
 Approach a target and press the
-{fb2200} to pick it up!{fb18}{fd00020700}Press the {fb2200} again to throw it!
+{fb2200} to pick it up!{fb18}{fd00020700}Press the {fb2200} again to throw!
 Oh, but not everything can be
-lifted and thrown.{fb18}{fd00020700}Also, your Lifters won't work
-when Special Weapons are equipped.
+lifted and thrown.{fb18}{fd00020700}Also, your Lifter won't work
+when a Special Weapon is equipped.
 Just be careful, okay?{fb18}{fd00020100}{fb0c}{fb06005000980e12}{fb050108}Want to hear that again?
  {fb0f00} No {fb0f01}    Yes{fb100201010601}{fb1102ff08}
 
@@ -2341,11 +2347,12 @@ Status screen.{fb18}{fd00020100}{fb0c}{fb06005000980e12}{fb050108}Want to hear t
 //じゃあ、コブンでれんしゅうしてみてね{fb18}{fd00020100}{fb0c}{fb06006400980b12}{fb050108}もう一回説明を聞く?      
 // {fb0f00}いいえ {fb0f01}はい{fb100201010601}{fb1102ff0c}
 30{fb06002200981623}{fb050108}Did you equip your Homing Missile?
-Press the {fb2200}to use it!{fb18}{fd00020100}Look at your Special Weapon gauge
-on the bottom right of the screen.{fb18}{fd00020300}The green bar shows each attack's
-energy use, while the blue bar
-is your total energy.{fb18}{fd00020100}No energy means no Special Weapon,
-but practice on the ServBots for now.{fb18}{fd00020100}{fb0c}{fb06005000980e12}{fb050108}Want to hear that again?
+Press the {fb2200} to use it!{fb18}{fd00020100}Look at your Special Weapon gauge
+on the bottom right of the screen.{fb18}{fd00020300}The green bar shows the energy
+you have ready, while the blue bar
+is your total energy reserve.{fb18}{fd00020100}Special Weapons need energy
+to use, but you can practice on
+the ServBots for now.{fb18}{fd00020100}{fb0c}{fb06005000980e12}{fb050108}Want to hear that again?
  {fb0f00} No {fb0f01}    Yes{fb100201010601}{fb1102ff0c}
 
 //LINE 013
@@ -2378,7 +2385,7 @@ treasure chest first!{fb24}{fb31}
 
 //LINE 000
 //そうびしない{fb1f}
-Not equipped!{fb1f}
+Unequip{fb1f}
 
 //LINE 001
 //バスターパーツA{fb1f}
@@ -2890,7 +2897,7 @@ Homing Missile{fb1f}
 
 //LINE 128
 //そうびしない{fb1f}
-Not equipped!{fb1f}
+Unequip{fb1f}
 
 //LINE 129
 //ヘルメット{fb1f}
@@ -2954,7 +2961,7 @@ Helmet{fb1f}
 
 //LINE 144
 //そうびしない{fb1f}
-Not equipped!{fb1f}
+Unequip{fb1f}
 
 //LINE 145
 //ボディーパーツA{fb1f}
@@ -3018,7 +3025,7 @@ Not equipped!{fb1f}
 
 //LINE 160
 //そうびしない{fb1f}
-Not equipped!{fb1f}
+Unequip{fb1f}
 
 //LINE 161
 //ダッシュパーツ{fb1f}
@@ -3976,13 +3983,13 @@ Unequipped{fb1f}
 //スタートボタン{fb2e06}…{fb2e06}ゲームに戻る
 //セレクトボタン{fb2e06}…{fb2e06}タイトルに戻る
 //{fb0a02}◯{fb0b}ボタン   {fb2e06}…{fb2e06}操作方法を見る{fb2b}
-む0{fb0a00}{fb0900}{fb06003a005c1237}{fb1d}          PAUSE
+む0{fb0a00}{fb0900}{fb06003a005c1237}{fb1d}             PAUSE
 
 
 
-START button{fb2e06}…{fb2e06}Resume Game
-SELECT button{fb2e06}…{fb2e06}Exit Game
-{fb0a02}◯{fb0b} button{fb2e06}…{fb2e06}Controls{fb2b}
+START button{fb2e06}:{fb2e06}Resume Game
+SELECT button{fb2e06}:{fb2e06}Exit Game
+{fb0a02}◯{fb0b} button{fb2e06}:{fb2e06}Controls{fb2b}
 
 //LINE 008
 //み0{fb0900}{fb06001c003e1767}{fb050408}{fb2e03}前後移動:{fb2205}
@@ -4152,11 +4159,11 @@ Left Stick left/right{fb1f}
 
 //LINE 018
 //ロックオン中に、方同キー左右{fb1f}
-When locked on, press the Directions buttons left/right{fb1f}
+Lock on + D-Pad{fb1f}
 
 //LINE 019
 //ロックオン中に、左スティック左右{fb1f}
-When locked on, press the right stick left/right{fb1f}
+Lock on + Left Stick{fb1f}
 
 //LINE 020
 //Ḷ+方同キー{fb1f}
@@ -4238,7 +4245,7 @@ Mountain Road{fb1f}
 
 //LINE 016
 //空き地{fb1f}
-Free Space{fb1f}
+Clearing{fb1f}
 
 //LINE 017
 //{fb1f}
@@ -4258,7 +4265,7 @@ Kito Village{fb1f}
 
 //LINE 021
 //キトの草原{fb1f}
-Kito Grassland{fb1f}
+Calbania Plains{fb1f}
 
 //LINE 022
 //ポクテの草原{fb1f}
@@ -4274,7 +4281,7 @@ Pokte Hill{fb1f}
 
 //LINE 025
 //ポクテの山道{fb1f}
-Pokte Mountain Road{fb1f}
+Pokte Mountain{fb1f}
 
 //LINE 026
 //ポクテの広場{fb1f}
@@ -4311,14 +4318,14 @@ changed when the Lifter is in use!{fb24}{fb31}
 //LINE 002
 //00{fb190083}{fb06005800600d02}{fb050a08}現在、切り替えられる
 //特殊武器は持っていません{fb24}{fb31}
-00{fb190083}{fb06005800600d02}{fb050a08}No Special Weapons available
-to equip!{fb24}{fb31}
+00{fb190083}{fb06005800600d02}{fb050a08}No Special Weapons
+available to equip!{fb24}{fb31}
 
 //LINE 003
 //00{fb190083}{fb06005800600d02}{fb050a08}現在、調べられる
 //特殊武器は持っていません{fb24}{fb31}
-00{fb190083}{fb06005800600d02}{fb050a08}No Special Weapons available
-to examine!{fb24}{fb31}
+00{fb190083}{fb06005800600d02}{fb050a08}No Special Weapons
+available to examine!{fb24}{fb31}
 
 //FILE SET unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|0x932c
 
@@ -4414,7 +4421,7 @@ Please tell me you like me!{fb120301}{fb0703}
 
 //LINE 000
 //00{fb06002000b01801}ノーマルハンドと特殊武器を切り替えます
-00{fb06002000b01801}Switch between Special Weapon.
+00{fb06002000b01801}Switch between Special Weapons.
 
 //LINE 001
 //00{fb06002000b01801}特殊武器を調べることができます
@@ -4436,7 +4443,7 @@ Please tell me you like me!{fb120301}{fb0703}
 
 //LINE 002
 //00{fb06002000b00c01}そうび画面を終了します
-00{fb06002000b00c01}Return to the previous screen.
+00{fb06002000b01001}Return to the previous screen.
 
 //FILE SET unpack\DAT\SUBSCN00\SUBSCN00-0x00000000-1.bin|0x970c
 
@@ -4524,7 +4531,7 @@ Please tell me you like me!{fb120301}{fb0703}
 
 //LINE 003
 //00{fb06002000b01801}ふりがなの設定を変更します
-00{fb06002000b01801}Set furigana options.
+00{fb06002000b01801}Secret dev room access.
 
 //LINE 004
 //00{fb06002000b01801}画面調整の設定を行います
@@ -4736,11 +4743,12 @@ the {fb2208}.
 
 //LINE 000
 //00{fb06002000b01801}ふりがなの表示をありにします
-00{fb06002000b01801}Set furigana ON.
+00{fb06002000b01802}Enter Mission 1 to view secret dev room.
+(Sound will be disabled. Bugs may occur.)
 
 //LINE 001
 //00{fb06002000b01801}ふりがなの表示をなしにします
-00{fb06002000b01801}Set furigana OFF.
+00{fb06002000b01802}Play the demo as normal.
 
 //LINE 002
 //00{fb06002000b01801}ふりがなの設定を終了します
