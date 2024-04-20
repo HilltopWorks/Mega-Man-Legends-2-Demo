@@ -426,11 +426,21 @@ def injectVoiceSub(text_file_path):
             unknownB = b"\xfd\x00\x02\x00\x00"
             unknownC = b"\xfb\x0c"
 
-            screen_width = 332
-            start_X = int(screen_width/2 - (box_size[0]/2))
-            start_Y = int(0xBE - box_size[1]/2)
+            screen_width = 320
+            width_buffer = 0x10
+            start_X = max(0,int(screen_width/2 - (box_size[0]/2)) - width_buffer//2)
+
+            position = line.split(",", 9)[3]
+            box_height_px = box_size[1]*0xC + 0xC
+            if position == "Top":
+                start_Y = int(0x24 - box_height_px/2)
+            else:
+                start_Y = int(0xC4 - box_height_px/2)
+
+            box_width =  math.ceil((box_size[0] + width_buffer)/0xC)
+            box_height = box_size[1]
             #box = b"\xfb\x06" + start_X.to_bytes(2, "big") + start_Y.to_bytes(2, "big") + math.ceil(box_size[0]/0xC).to_bytes(1, "little") + (0x10 | box_size[1]).to_bytes(1, "little")
-            box = b"\xfb\x06" + start_X.to_bytes(2, "big") + start_Y.to_bytes(2, "big") + math.ceil(box_size[0]/0xC).to_bytes(1, "little") + (box_size[1]).to_bytes(1, "little")
+            box = b"\xfb\x06" + start_X.to_bytes(2, "big") + start_Y.to_bytes(2, "big") + box_width.to_bytes(1, "little") + box_height.to_bytes(1, "little")
             
             box_type = b"\xfb\x05\x01\x08"
             unknown2 = b"\xfb\x1d"
@@ -462,8 +472,9 @@ def injectVoiceSub(text_file_path):
             terminator = b"\xFF"
             #10{fb2d01}{fb0900}{fb06006200b40c11}{fb050108}You used the key!{fb0901}{fb08002d}{fd00020000}{fb0c}{fb260581}
 
+            #string_bytes = front_buffer + instant_text + unknown1 + box + box_type + unknown2 + string_bytes[:-1] + single_speed_text + lifetime + terminator
             string_bytes = front_buffer + instant_text + unknown1 + box + box_type + unknown2 + string_bytes[:-1] + single_speed_text + lifetime + terminator
-
+            
             inject_lines.append(string_bytes)
 
         header_buffer += ((len(inject_lines))*2).to_bytes(2, "little")

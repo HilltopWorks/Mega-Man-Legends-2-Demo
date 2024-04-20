@@ -13,7 +13,9 @@ def build():
     gfx.get_vwf("font_1_edit.PNG", "vwf.bin", 12, 12, 13, 20)
     gfx.inject_subsc()
     gfx.inject_scene()
-    
+    gfx.inject_select()
+
+
     subprocess.call(["armips.exe","SLPS_021.09.asm"])
     shutil.copy("src_edit\\SLPS_021.09", "roll_build\\SLPS_021.09")
 

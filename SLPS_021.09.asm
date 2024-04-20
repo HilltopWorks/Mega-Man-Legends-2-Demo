@@ -1,7 +1,6 @@
 .psx
 .erroronwarning on
 
-; --TODO: load in the text and subtitle scripting files to their DATs
 .definelabel overlay_ID, 	0x800e0000 ;Byte
 .definelabel overlay_start, 0x800e0000 
 ;Area 1
@@ -60,7 +59,7 @@ S25_scripting:
 .align 4
 .close
 
-; ----------------         CRC AREA START               --------------------
+; ----------------                 --------------------
 .open "src_edit/SLPS_021.09",0x8000f800
 
 ; ------------- Default furigana to off
@@ -248,7 +247,6 @@ check_timer:
 	j script_check_loop_head
 	addiu t5, t5, 1		;Increment index counter
 
-
 	;t6 holds pTextBlock
 	;t5 holds index
 print_subtitle:
@@ -264,7 +262,71 @@ voice_return:
 	nop
 	jr ra
 	addiu sp, sp, 4
+.endarea
+
+; ---------- Secret level code
+.definelabel set_level_hijack, 0x800b0958 
+.definelabel mem_audio_volume, 0x80070b40
+.definelabel mem_level_ID, 0x8008AAE8
+.definelabel mem_furigana_flag, 0x8008ab0c
+
+secret_level_ID equ 0x7
+level_4 equ 0x23		;Breaks if loading this level
+
+.org freespace_text_2_start
+.area freespace_text_2_size
+; ---
+secret_level_check:
+	;v0 has level ID
+	;s2 has mem_level_ID - 0x10
+	
+	;if furigana_flag == False:
+	;	return
+	la v1, mem_furigana_flag
+	lb v1, 0x0(v1)
+	nop
+	beq v1, zero, secret_level_return
+	nop
+	
+	;if next_level == level_4:
+	;	return
+	li v1, level_4
+	beq v1, v0, secret_level_return
+	nop
+
+	;set_audio(VOLUME_OFF)
+	la v1, mem_audio_volume
+	sh zero, 0x0(v1)
+
+	;set_level(secret_level_ID)
+	li v0, secret_level_ID
+
+secret_level_return:
+	sb v0, 0x10(s2) ;Restored instruction
+	jr ra
+	lui v0, 0x800b	;Restored instruction
 
 .endarea
 .close
 
+;------------------------ DEMO
+
+.open "unpack_edit/DAT/DEMO/DEMO-0x00000000-1.bin", 0x800b0000
+
+.org set_level_hijack
+	jal secret_level_check
+	nop
+
+
+;Move and expand select title elements
+.org 0x800B1700
+	ori a2, a2, 0x18	;1st box X
+.org 0x800B1710
+	ori t0, t0, 0x118
+.org 0x800b1720
+	ori t3, t3, 0x218
+.org 0x800b1730
+	ori t1, t1, 0x5C	;3rd box width
+
+
+.close

@@ -333,7 +333,6 @@ def convertImage(image_definition, clut_definition, output_path, show_output=Fal
         inset = -1
     pxl = readPXL(image_file, image_definition["PXL_OFFSET"], image_definition["WIDTH"],image_definition["HEIGHT"], image_definition["PXL_MODE"], inset)
     
-    
     height = image_definition["HEIGHT"]
     width = image_definition["WIDTH"]
     
@@ -347,10 +346,7 @@ def convertImage(image_definition, clut_definition, output_path, show_output=Fal
 
         for y in range(height):
             for x in range(width):
-                
-                pixel =  clut[pxl[y*image_definition["WIDTH"] + x]]
-                
-                
+                pixel =  clut[pxl[y*image_definition["WIDTH"] + x]]  
                 im.putpixel((x,y), pixel)
         if "FLIP" in image_definition:
             if image_definition["FLIP"] == HORIZONTAL:
@@ -380,6 +376,41 @@ def convertImage(image_definition, clut_definition, output_path, show_output=Fal
         im.save(output_path)
     return im
 
+def gridConvert(images, cluts, output_path, dimensions, show_output=False, STP_MODE = TIMresource.STP_OFF):
+
+    assert len(images) == len(cluts) and len(images) == dimensions[0]*dimensions[1], "GRID DIMENSIONS DO NOT MATCH IMAGES PASSED TO GRIDCONVERT"
+
+    output_extension = Path(output_path).suffix
+    for image_number in range(len(images)):
+        convertImage(images[image_number], cluts[image_number], output_path.replace(output_extension, "_" + str(image_number).zfill(2) + output_extension))
+
+    width_total = 0
+    height_total = 0
+    for i in range(dimensions[0]):
+        cell_width = images[i*dimensions[1]]["WIDTH"]
+        width_total += cell_width
+    for j in range(dimensions[1]):
+        cell_height = images[j*dimensions[0]]["HEIGHT"]
+        height_total += cell_height
+    
+    canvas = Image.new("RGBA", (width_total, height_total), (0,0,0,0))
+
+    x_cursor = 0
+    y_cursor = 0
+    for j in range(dimensions[1]):
+        for i in range(dimensions[0]):
+            image_number = i + j*dimensions[0]
+            cell_image = Image.open(output_path.replace(output_extension, "_" + str(image_number).zfill(2) + output_extension))
+            canvas.paste(cell_image, (x_cursor, y_cursor))
+            x_cursor += cell_image.width
+        x_cursor = 0
+        y_cursor += cell_image.height
+    
+    if show_output:
+        canvas.show()
+    canvas.save(output_path)
+    return
+
 def closest(color,colors, color_dict):
     if color in color_dict:
         return color_dict[color]
@@ -402,6 +433,25 @@ def getAlpha(palette):
 
     #print("ERROR: ALPHA NOT FOUND!!!!")
     return 0
+
+def gridInject(images, cluts, png_path, dimensions, STP_mode=TIMresource.STP_OFF):
+
+    canvas = Image.open(png_path)
+    x_cursor = 0
+    y_cursor = 0
+    for j in range(dimensions[1]):
+        for i in range(dimensions[0]):
+            image_number = i + j*dimensions[0]
+            cell_image = canvas.crop((x_cursor, y_cursor, x_cursor + images[image_number]["WIDTH"], y_cursor + images[image_number]["HEIGHT"]))
+            cell_image_path = png_path.replace(".png", "_" + str(image_number).zfill(2) + ".png")
+            cell_image.save(cell_image_path)
+
+            injectImage(images[image_number], cluts[image_number], cell_image_path, STP_mode)
+            x_cursor += cell_image.width
+        x_cursor = 0
+        y_cursor += cell_image.height
+
+    return
 
 def injectImage(imagedef, clutdef, png_path, STP_mode=TIMresource.STP_OFF):
     print("Injecting PXL:", imagedef, "\nCLUT:", clutdef, "\nPNG:", png_path,"\n")

@@ -287,6 +287,51 @@ def unpack_file(src_path, out_dir):
     
     return
 
+def unpack_USA(src_path, out_dir):
+    dat_file = open(src_path, "rb")
+    
+    cursor = 0
+    
+    os.makedirs(out_dir, exist_ok=True)
+    
+    while cursor < os.stat(src_path).st_size - 0x800:
+        dat_file.seek(cursor)
+        
+        is_filesize_exception = isFilesizeException(src_path, cursor)
+
+        file_type = int.from_bytes(dat_file.read(4), "little")
+        file_size = int.from_bytes(dat_file.read(4), "little")
+        sectors_to_next = int.from_bytes(dat_file.read(4), "little")
+        
+        if file_size == 0:
+            cursor += 0x800
+            continue
+
+        out_stem = Path(src_path).stem + "-{0:#0{1}x}".format(cursor,10) + "-" + str(file_type)
+        
+        if file_type == 3:
+            out_stem += ".uncomp"
+        
+        out_path = os.path.join(out_dir, out_stem + ".bin")
+        out_file = open(out_path, 'wb')
+        
+        if file_type == 3:
+            #print("Uncompressing", out_stem)
+            out_file.write(uncompress(src_path, cursor))
+        else:
+            #print("Exporting", out_stem)
+            dat_file.seek(cursor + 0x30)
+            if is_filesize_exception:
+                out_file.write(dat_file.read((sectors_to_next*0x800)-0x30))
+            else:
+                out_file.write(dat_file.read(file_size))
+        
+        out_file.close()
+        
+        cursor += sectors_to_next*0x800
+    
+    return
+
 def unpack_all(test=False):
     os.makedirs("unpack\\DAT", exist_ok=True)
     os.makedirs("unpack\\PLDAT", exist_ok=True)
@@ -505,5 +550,5 @@ def testCompress():
 #f = open("test.bin", "wb")
 #f.write(buf)
 #f.close()
-#unpack_file("src\\DAT\\ST29T.BIN", "test")
+#unpack_USA(r"Mega Man Legends 2 (USA) (Demo)\src\DAT\LEGEND2.BIN", r"Mega Man Legends 2 (USA) (Demo)\unpack")
 #unpack_all()
