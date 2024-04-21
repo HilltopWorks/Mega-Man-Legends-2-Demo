@@ -329,4 +329,39 @@ secret_level_return:
 	ori t1, t1, 0x5C	;3rd box width
 
 
+; Modify BG gradient
+.org 0x800B19B4
+	.byte 0x88		;Black out select header
+
+.org 0x800b101C
+	;sll a0,a0,4
+	;nop
+
+
+.org 0x800b1010
+	;srl v0,v0, 6
+.org 0x800b1028
+	;srl a0,a0, 7
+
+.org 0x800b102C	;Swap G and B
+	sll a0, a0, 0x8
+	sll v1, v0, 0x10
+.org 0x800b1098
+	sll v0,v0,0x10
+
+.org 0x800b2b41
+	.byte 0x1D
+	.byte 0x1E
+.org 0x800b2b53
+	.byte 0x29
+	.byte 0x2a
+	.byte 0x2b
+.org 0x800b2aef
+	.byte 0x23
+	.byte 0x24
+	.byte 0x25
+	.byte 0x26
+.org 0x800B2B19
+	.byte 0x3f
+
 .close

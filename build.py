@@ -14,7 +14,9 @@ def build():
     gfx.inject_subsc()
     gfx.inject_scene()
     gfx.inject_select()
-
+    gfx.inject_main_logo()
+    gfx.inject_gover()
+    gfx.inject_main_menu()
 
     subprocess.call(["armips.exe","SLPS_021.09.asm"])
     shutil.copy("src_edit\\SLPS_021.09", "roll_build\\SLPS_021.09")
