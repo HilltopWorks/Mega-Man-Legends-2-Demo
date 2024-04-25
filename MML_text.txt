@@ -56,9 +56,9 @@ Roll or Tron?
 //・・・・・・・・・・・・・・・・
 //・・・・・・・・・・・・・・・・{fb18}{fd00020200}
 //あたしが何か言うと思った?{fb18}{fd00020000}{fb2c01}
-00{fb2c00}{fb1501000000a000a00080}{fb2b}{fb06003000a41113}{fb050008}... ... ... ... 
-... ... ... ... 
-... ... ... ... {fb18}{fd00020200}What, did you think I was going
+00{fb2c00}{fb1501000000a000a00080}{fb2b}{fb06003000a41113}{fb050008}... ... ... ... ... ... ... ... 
+... ... ... ... ... ... ... ... 
+... ... ... ... ... ... ... ... {fb18}{fd00020200}What, did you think I was going
 to say something?{fb18}{fd00020000}{fb2c01}
 
 //LINE 007
@@ -128,7 +128,7 @@ Misadventures of Tron Bonne!"{fb24}{fb31}
 
 //LINE 001
 //10{fb06005800b40d11}{fb050108}壊れていて開かない{fb080008}・{fb080008}・{fb080008}・{fb24}{fb31}
-10{fb06005800b40d12}{fb050108}It's broken and
+10{fb06005800b40d12}{fb050108}The door is broken and
 inoperable{fb080008}.{fb080008}.{fb080008}.{fb24}{fb31}
 
 //LINE 002
@@ -204,7 +204,7 @@ Press {fb2203} to catch!{fb18}{fd00020700}It's easy to get mixed up, but the
 //平原まで行っちゃったかも…
 //リーバードにおそわれていないか心配だわ…{fb24}{fb31}
 60{fb06002800901533}{fb050108}There are four piglets.
-One is a little bum.
+One is a bit of a loafer.
 I doubt he went far.{fb18}{fd00020700}The others are playful enough
 to run out to the plains.
 I hope no Reaverbots get them.{fb24}{fb31}
@@ -227,7 +227,8 @@ It looks like a Reaverbot!{fb24}{fb31}{fb2c01}
 
 //LINE 011
 //10{fb06004000b41111}{fb050108}外にいたリーバードに、にてるなぁ{fb24}{fb31}{fb2c01}
-10{fb06004000b41111}{fb050108}Those Reaverbots are all over the place!{fb24}{fb31}{fb2c01}
+10{fb06004000b41112}{fb050108}Those Reaverbots are all over
+the place!{fb24}{fb31}{fb2c01}
 
 //LINE 012
 //00
@@ -354,7 +355,7 @@ hurt a girl's feelings!{fd000f0200}{fb0901}Now, close your eyes{fb080008}.{fb080
 
 //LINE 001
 //10{fb06005200b40e11}{fb050108}{fb0a06}バスターキャノン{fb0b}を見付けた{fb360344}{fb24}{fb31}
-10{fb06005200b40e11}{fb050108}{fb0a06}You found:{fb0b}Buster Cannon!{fb360344}{fb24}{fb31}
+10{fb06004C00b40f11}{fb050108}{fb0a06}You found: {fb0b}Buster Cannon!{fb360344}{fb24}{fb31}
 
 //LINE 002
 //10{fb06004600b41011}{fb050108}1000000ゼニーを見付けた{fb24}{fb31}{fb37000f4240}
@@ -362,7 +363,7 @@ hurt a girl's feelings!{fd000f0200}{fb0901}Now, close your eyes{fb080008}.{fb080
 
 //LINE 003
 //10{fb06005800b40d11}{fb050108}{fb0a06}ダッシュパーツ{fb0b}を見付けた{fb24}{fb31}{fb3603a1}
-10{fb06005800b40d11}{fb050108}{fb0a06}You found:{fb0b}Dash Parts!{fb24}{fb31}{fb3603a1}
+10{fb06005800b40d11}{fb050108}{fb0a06}You found: {fb0b}Jet Skates!{fb24}{fb31}{fb3603a1}
 
 //LINE 004
 //30{fb06005800ac0d22}{fb050108}{fb0a06}ライフドリンク{fb0b}を見付けた
@@ -372,7 +373,7 @@ Life Gauge recharged!{fb24}{fb31}{fb3400a0}
 
 //LINE 005
 //10{fb06004600b41011}{fb050108}ボスを倒してお宝を手に入れろ!{fb24}{fb31}
-10{fb06006200b40b12}{fb050108}Defeat the boss and
+10{fb06005C00b40c12}{fb050108}Defeat the boss and
 claim the treasure!{fb24}{fb31}
 
 //FILE SET unpack\DAT\ST28\ST28-0x00014000-1.bin
@@ -387,7 +388,7 @@ claim the treasure!{fb24}{fb31}
 //とうぶん食べるのに困らない!{fb080008}
 //待っててね、ロールちゃん!{fb24}{fb31}{fb24}{fd00020000}{fb0c}{fb260680}
 20{fb2d01}{fb06004c009f0f33}{fb050108}
-  Mission success!{fb18}{fd00020700}With this much money,
+     Mission success!{fb18}{fd00020700}With this much money,
 we can eat like kings!{fb080008}
 Wait for me, Roll!{fb24}{fb31}{fb24}{fd00020000}{fb0c}{fb260680}
 
@@ -437,8 +438,9 @@ Roll for help first thing!{fb24}{fb31}{fb2c01}
 //30{fb2c00}{fb1501000000e000e80018}{fb06002800ac1522}{fb050108}{fb3383}ゲーム中に{fb220b}を押すと
 //ゲームを一時ストップさせることができるよ{fb18}{fd00020000}いわゆる「ポーズ」ってやつだね〜{fb18}{fd00020300}で、{fb220a}でステータス画面に
 //入れるんだ。おぼえた?{fb24}{fb31}{fb2c01}
-30{fb2c00}{fb1501000000e000e80018}{fb06002800ac1522}{fb050108}{fb3383}When playing, press the {fb220b}
-to pause the game!{fb18}{fd00020000}That's why it's called "pausing".{fb18}{fd00020300}You can also press the SELECT
+30{fb2c00}{fb1501000000e000e80018}{fb06002800ac1522}{fb050108}{fb3383}When playing, you can press the
+{fb220b} to take a break!{fb18}{fd00020000}That's a handy technique known
+as "pausing".{fb18}{fd00020300}You can also press the SELECT
 button to view the Status screen!{fb24}{fb31}{fb2c01}
 
 //LINE 007
@@ -481,7 +483,7 @@ To talk, press the {fb2203}.{fb18}{fd00020100}{fb0c}{fb06004400ac1012}{fb050108}
 
 //LINE 001
 //10{fb06005800b40d11}{fb050108}壊れていて開かない{fb080008}・{fb080008}・{fb080008}・{fb24}{fb31}
-10{fb06005800b40d12}{fb050108}It's broken and
+10{fb06005800b40d12}{fb050108}The door is broken and
 inoperable{fb080008}.{fb080008}.{fb080008}.{fb24}{fb31}
 
 //LINE 002
@@ -559,14 +561,14 @@ It's easy to get mixed up, but the
 //平原まで行っちゃったかも…
 //リーバードにおそわれていないか心配だわ…{fb24}{fb31}
 60{fb06002800901533}{fb050108}There are four piglets.
-One is a little bum.
+One is a bit of a loafer.
 I doubt he went far.{fb18}{fd00020700}The others are playful enough
 to run out to the plains.
 I hope no Reaverbots get them.{fb24}{fb31}
 
 //LINE 008
 //10{fb28068409ff}{fb260684}{fb06004000b41111}{fb050108}どうやらここはあの子の部屋らしい{fb24}{fb31}
-10{fb28068409ff}{fb260684}{fb06004000b41111}{fb050108}This belong to that girl.{fb24}{fb31}
+10{fb28068409ff}{fb260684}{fb06004000b41111}{fb050108}This must be that girl's room.{fb24}{fb31}
 
 //LINE 009
 //10{fb06005800ac0d12}{fb050108}あんまり女の子の部屋を
@@ -582,7 +584,8 @@ It looks like a Reaverbot!{fb24}{fb31}{fb2c01}
 
 //LINE 011
 //10{fb06004000b41111}{fb050108}外にいたリーバードに、にてるなぁ{fb24}{fb31}{fb2c01}
-10{fb06004000b41111}{fb050108}Those Reaverbots are all over the place!{fb24}{fb31}{fb2c01}
+10{fb06004000b41112}{fb050108}Those Reaverbots are all over
+the place!{fb24}{fb31}{fb2c01}
 
 //LINE 012
 //00
@@ -1174,7 +1177,7 @@ their target.
 
 //LINE 129
 //00ロックが愛用しているヘルメット
-00MegaMan's favorite helmet
+00MegaMan's trusty helmet
 
 //LINE 130
 //00ヘルメットBについての説明
@@ -2226,8 +2229,8 @@ to activate Roller Dash!
 //表示されるからしっかり聞いてね{fb18}{fd00020100}それじゃあ、先にすすんでみて!{fb24}{fb31}
 70{fb06004600a41033}{fb050108}Are you ready, MegaMan?
 I'll send messages like this
-whenever I have tips for you.{fb18}{fd00020100}Listen carefully and try things
-out!{fb24}{fb31}
+whenever I have tips for you.{fb18}{fd00020100}Now move out, but stay
+on your guard!{fb24}{fb31}
 
 //LINE 002
 //70{fb06005800a40d33}{fb050108}そこに扉があるよね
@@ -2244,8 +2247,8 @@ Walk up to it and press the
 //おぼえてるよね{fb18}{fd00020100}走りながらまがる事もできるから
 //れんしゅうしておいてね!{fb18}{fd00020100}{fb0c}{fb06006400980b12}{fb050108}もう一回説明を聞く?
 // {fb0f00}いいえ {fb0f01}はい{fb100201010601}{fb1102ff03}
-10{fb06004600981012}{fb050108}Press the {fb2207} 
-to look around.{fb18}{fd00020100}It also works when
+10{fb06004000981112}{fb050108}Press the {fb2207} 
+to turn around.{fb18}{fd00020100}It also works when
 running around!{fb18}{fd00020100}{fb0c}{fb06005000980e12}{fb050108}Want to hear that again?
  {fb0f00} No {fb0f01}    Yes{fb100201010601}{fb1102ff03}
 
@@ -2283,7 +2286,7 @@ some practice!{fb18}{fd00020100}{fb0c}{fb06005000980e12}{fb050108}Want to hear t
 00{fb06004000901123}{fb050108}Press the {fb2201} to shoot
 and the {fb2208} to lock on!{fb18}{fd00020600}Locking onto a target allows
 you to keep aim even while
-moving around.{fb18}{fd00020300}Don't forget to do it!
+moving around.{fb18}{fd00020300}Don't forget to use it!
 For now, test it out on those
 Servbots in the room.{fb18}{fd00020100}{fb0c}{fb06005000980e12}{fb050108}Want to hear that again?
  {fb0f00} No {fb0f01}    Yes{fb100201010601}{fb1102ff06}
@@ -2364,8 +2367,8 @@ the ServBots for now.{fb18}{fd00020100}{fb0c}{fb06005000980e12}{fb050108}Want to
 // {fb0f00}いいえ {fb0f01}はい{fb100201010601}{fb1102ff0d}
 70{fb06002800901533}{fb050108}We're at the final stretch! You should
 see an angled door up ahead. {fb080008}.{fb080008}.{fb080008}.{fb080008}It looks
-like a garbage chute to the bottom.{fb18}{fd00020700}Approach it and press the {fb2203} 
-to go down.
+like a garbage chute leading down.{fb18}{fd00020700}Approach it and press the {fb2203} 
+to head in.
 Come on, be a hero!{fb18}{fd00020100}{fb0c}{fb06005000980e12}{fb050108}Want to hear that again?
  {fb0f00} No {fb0f01}    Yes{fb100201010601}{fb1102ff0d}
 
@@ -3029,7 +3032,7 @@ Unequip{fb1f}
 
 //LINE 161
 //ダッシュパーツ{fb1f}
-Dash Parts{fb1f}
+Jet Skates{fb1f}
 
 //LINE 162
 //シューズB{fb1f}
@@ -3085,7 +3088,7 @@ Dash Parts{fb1f}
 
 //LINE 175
 //ハイジャンプシューズ{fb1f}
-High Jump Shoes{fb1f}
+Jump Springs{fb1f}
 
 //LINE 176
 //アイテム3{fb1f}
@@ -4305,7 +4308,7 @@ Ruro Ruins{fb1f}
 //00{fb190083}{fb06004c00600f02}{fb050a08}持ち上げ、および投げ状態では
 //特殊武器の変更はできません{fb24}{fb31}
 00{fb190083}{fb06004c00600f02}{fb050a08}Special Weapons can't be
-changed when the Lifter is in use!{fb24}{fb31}
+changed while lifting!{fb24}{fb31}
 
 //LINE 001
 //00{fb06008500760f03}ー操作方法ー
@@ -4549,7 +4552,7 @@ Please tell me you like me!{fb120301}{fb0703}
 
 //LINE 001
 //00{fb06002000b01801}コントローラの視点変更を行います
-00{fb06002000b01801}Set point of view options.
+00{fb06002000b01801}Set camera options.
 
 //LINE 002
 //00{fb06002000b01801}ロックオンの設定を変更します
@@ -4743,7 +4746,7 @@ the {fb2208}.
 
 //LINE 000
 //00{fb06002000b01801}ふりがなの表示をありにします
-00{fb06002000b01802}Enter Mission 1 to view secret dev room.
+00{fb06002000b01802}Enter "Roll's Training" to view dev rooms.
 (Sound will be disabled. Bugs may occur.)
 
 //LINE 001

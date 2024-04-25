@@ -1,0 +1,103 @@
+//Scene:unpack_edit/DAT/ST23T/ST23T-0x00000000-1.bin, 0x800f5810
+//Dialogue: 0,0:00:00.75,0:00:03.00,Default,,0,0,0,,Roll's been kidnapped!
+//Dialogue: 0,0:00:03.00,0:00:07.00,Default,,0,0,0,,Her captor? The Bonne family air pirate, Tron!
+//Dialogue: 0,0:00:07.00,0:00:10.75,Default,,0,0,0,,And she's not handing Roll over for free!
+//Dialogue: 0,0:00:10.75,0:00:14.50,Default,,0,0,0,,Does MegaMan have what it takes to save Roll?!
+Dialogue: 0,0:00:15.85,0:00:18.00,Default,10,0,1,1,20,Well? You've heard the offer.
+Dialogue: 0,0:00:18.00,0:00:23.00,Default,10,0,1,1,6a,If you want us to free your dorky\Nmechanic friend,
+Dialogue: 0,0:00:24.75,0:00:27.50,Default,10,0,2,1,c,you've only got one option:\NJoin me and my crew!
+Dialogue: 0,0:00:27.50,0:00:29.50,Top,10,0,2,1,62,Hey, the blue fellow's here!
+Dialogue: 0,0:00:29.50,0:00:35.25,Default,10,0,3,1,10,Make the right choice, and I maaay\Nsend her home in one piece.
+//Dialogue: 0,0:00:31.90,0:00:35.25,Default,10,0,3,1,5c,and I maaay send her home in one piece.
+Dialogue: 0,0:00:35.25,0:00:39.25,Default,10,0,4,1,c,Don't worry. Just say you'll join my crew!
+
+Dialogue: 0,0:00:00.01,0:00:02.05,Default,10,1,3,1,94,Somebody save us!
+
+Dialogue: 0,0:00:00.01,0:00:01.45,Default,10,2,0,1,1,Hmph!
+Dialogue: 0,0:00:02.05,0:00:05.25,Default,10,2,0,1,36,You can't act macho forever, you know!
+Dialogue: 0,0:00:05.95,0:00:10.40,Default,10,2,0,1,a8,As we speak, that Miss Blondie's\Na little tied up...
+Dialogue: 0,0:00:11.65,0:00:15.70,Default,10,2,0,1,150,Oopsie! Did I really say all that?
+Dialogue: 0,0:00:16.00,0:00:16.80,Default,10,2,0,1,1d5,Ahem!
+Dialogue: 0,0:00:17.45,0:00:22.90,Default,10,2,1,1,1,If you ever change your mind,\Nyou'd better say so!\NI'll let you join my crew anytime.
+//Dialogue: 0,0:00:20.25,0:00:22.90,Default,10,2,1,1,56,I'll let you join my crew anytime.
+Dialogue: 0,0:00:23.40,0:00:25.00,Default,10,2,2,1,8,Listen up, everyone!
+Dialogue: 0,0:00:25.55,0:00:28.00,Default,10,2,2,1,43,My whole plan is a bust if MegaMan\Nreaches Roll.
+Dialogue: 0,0:00:28.25,0:00:31.05,Default,10,2,2,1,9a,If he gets past you, I'll punish you!
+Dialogue: 0,0:00:31.05,0:00:32.25,Top,10,2,2,1,f5,Copy that!
+Dialogue: 0,0:00:32.65,0:00:35.20,Default,10,2,2,1,11D,We locked the gate nice and tight,\NMiss Tron!
+Dialogue: 0,0:00:35.85,0:00:39.90,Default,10,2,3,1,0,And I'm holding the key so he\Nnever finds it!
+Dialogue: 0,0:00:39.90,0:00:41.25,Top,10,2,4,1,0,Lookie, lookie!
+Dialogue: 0,0:00:41.25,0:00:44.50,Default,10,2,4,1,20,Hey! Don't show it off like that, dummy!
+Dialogue: 0,0:00:44.85,0:00:46.30,Default,10,2,5,1,1,Anyways, move out!
+Dialogue: 0,0:00:46.60,0:00:49.10,Default,10,2,5,1,34,I'm off to check in on our hostage.
+Dialogue: 0,0:00:49.10,0:00:50.60,Top,10,2,6,1,2,Roger!
+//Dialogue: 0,0:00:51.75,0:00:57.55,Default,,0,0,0,,It seems Roll was taken from the village to an open area atop the gated mountain road.
+//Dialogue: 0,0:01:05.35,0:01:08.25,Default,,0,0,0,,It's up to MegaMan to steal the gate keys!
+//Dialogue: 0,0:01:08.80,0:01:12.65,Default,,0,0,0,,Who knows what'll happen to Roll if he doesn't save her in time!
+Dialogue: 0,0:01:15.75,0:01:17.85,Default,10,4,1,1,58,He's here! He's here!
+Dialogue: 0,0:01:17.85,0:01:19.85,Top,10,4,2,1,16,The blue fellow's here!
+Dialogue: 0,0:01:21.15,0:01:24.10,Default,10,4,3,1,1,Keep him out at any cost!
+Dialogue: 0,0:01:24.10,0:01:25.40,Top,10,4,3,1,58,Aye-aye!
+
+Dialogue: 0,0:00:12.45,0:00:15.60,Default,11,1,0,1,d,Red alert...! Gate 1, breached!
+Dialogue: 0,0:00:16.65,0:00:20.50,Top,11,1,0,1,72,Copy that! We'll stop him at Gate 2!
+
+
+//Scene:unpack_edit/DAT/ST24T/ST24T-0x00000000-1.bin, 0x800f2850
+Dialogue: 0,0:00:04.35,0:00:07.20,Default,12,0,1,1,2c,We'll take him down with\Nlong-range firepower!
+Dialogue: 0,0:00:07.60,0:00:10.20,Default,12,0,1,1,88,MegaMan will never get through!
+Dialogue: 0,0:00:10.60,0:00:11.60,Top,12,0,1,1,dc,Aye-aye!
+
+Dialogue: 0,0:00:14.85,0:00:18.25,Default,14,1,0,1,30,We're sorry, Miss Tron...
+
+//Scene:unpack_edit/DAT/ST25T/ST25T-0x00000000-1.bin, 0x800fcae0
+Dialogue: 0,0:00:01.05,0:00:04.00,Top,15,0,0,1,1a,He breached our last line of defense!
+Dialogue: 0,0:00:04.80,0:00:09.05,Default,15,0,0,1,7c,Why? Why risk your own life like this?
+Dialogue: 0,0:00:09.35,0:00:13.25,Default,15,0,0,1,10c,Is that... little brat really so\Nspecial to you?
+Dialogue: 0,0:00:14.80,0:00:17.00,Default,15,0,1,1,20,Well, whatever! I don't care!
+Dialogue: 0,0:00:17.25,0:00:19.80,Default,15,0,1,1,72,You'll get what's coming to you!
+Dialogue: 0,0:00:20.70,0:00:23.25,Default,15,0,2,1,10,Now deploying the Jagd Krabbe!
+Dialogue: 0,0:00:27.55,0:00:29.10,Default,15,1,1,1,c,Hold it right there!
+//Dialogue: 0,0:00:29.50,0:00:30.50,Default,15,1,1,1,4c,Huh?
+Dialogue: 0,0:00:30.50,0:00:32.75,Default,15,1,2,1,1,I was going easy on you, MegaMan,
+Dialogue: 0,0:00:33.60,0:00:35.85,Default,15,1,2,1,5a,but you've crossed the line!
+Dialogue: 0,0:00:37.30,0:00:41.50,Default,15,1,3,1,4,No one picks on my dear little\NServbots except me!
+Dialogue: 0,0:00:42.00,0:00:46.00,Default,15,1,3,1,88,I... I absolutely can't stand you!
+//Last line bleeds into 15 1 4 1
+Dialogue: 0,0:00:46.55,0:00:48.05,Default,15,1,5,1,14,Hmph!
+//Hmph!
+
+Dialogue: 0,0:00:07.00,0:00:10.25,Default,16,0,2,1,2,Sheesh! You're starting to get\Non my nerves. 
+Dialogue: 0,0:00:11.90,0:00:16.65,Default,16,0,3,1,1e,Come on...! Don't you know...\Nwhen to quit?!
+//Dialogue: 0,0:00:19.40,0:00:20.40,Default,16,0,4,1,1c,Hiyah!
+Dialogue: 0,0:00:20.40,0:00:21.90,Default,16,0,5,1,1,He jumped over me?!
+Dialogue: 0,0:00:25.90,0:00:27.40,Default,16,0,7,1,4,Grr...!
+Dialogue: 0,0:00:27.90,0:00:30.65,Default,16,0,7,1,40,Things always come crashing down with him!
+Dialogue: 0,0:00:31.20,0:00:32.20,Default,16,0,7,1,a6,Huh?
+Dialogue: 0,0:00:34.20,0:00:36.70,Default,16,0,9,1,1,Oh, why me? Why me? Why me?!
+Dialogue: 0,0:00:37.60,0:00:41.35,Default,16,0,a,1,c,We're crashing down after aaall!
+
+Dialogue: 0,0:00:10.25,0:00:12.50,Default,16,1,3,1,2c,Playtime is over!
+Dialogue: 0,0:00:13.35,0:00:16.95,Default,16,1,4,1,3,Time to show you the\NJagd Krabbe's true power!
+
+//Dialogue: 0,0:00:11.30,0:00:14.60,Default,17,0,3,1,12,Cough, cough, cough!
+Dialogue: 0,0:00:15.30,0:00:20.80,Default,17,0,3,1,9c,Hmph! Too bad the Jagd Krabbe lost,\Nbut this was only a test run anyhow!
+//Dialogue: 0,0:00:16.30,0:00:18.30,Default,17,0,3,1,b4,Too bad the Jagd Krabbe lost,
+//Dialogue: 0,0:00:18.30,0:00:21.55,Default,17,0,3,1,f0,but this was only a test run anyhow!
+Dialogue: 0,0:00:21.55,0:00:25.20,Default,17,0,3,1,150,I want a rematch soon, so save the date!
+Dialogue: 0,0:00:35.75,0:00:38.65,Default,17,0,7,1,17,You... You've been warned, MegaMan!
+Dialogue: 0,0:00:38.65,0:00:41.40,Top,17,0,7,1,43,Miss Tron!
+Dialogue: 0,0:00:44.50,0:00:49.20,Default,17,0,9,1,2,Anyways, I'm done here,\Nbut I'm coming for you!
+//Dialogue: 0,0:00:47.20,0:00:49.20,Default,17,0,9,1,5f,but I'm coming for you!
+Dialogue: 0,0:00:50.65,0:00:52.00,Default,17,0,9,1,b8,We're leaving!
+Dialogue: 0,0:00:52.00,0:00:53.00,Top,17,0,9,1,e0,Roger!
+Dialogue: 0,0:00:59.85,0:01:00.85,Default,17,0,c,1,2c,Roll!
+Dialogue: 0,0:01:07.70,0:01:09.70,Top,17,0,e,1,b8,This way! This way!
+Dialogue: 0,0:01:10.60,0:01:12.60,Default,17,0,e,1,100,If you're looking for your friend,
+Dialogue: 0,0:01:12.60,0:01:15.85,Default,17,0,e,1,144,the monkey robot took her\Nhome a while ago.
+Dialogue: 0,0:01:15.85,0:01:18.85,Top,17,0,e,1,1ac,They're leaving without us!
+Dialogue: 0,0:01:18.85,0:01:21.60,Default,17,0,e,1,1f4,Wait for us, Miss Tron!
+//bleeds a bit into F
+//Dialogue: 0,0:01:26.50,0:01:29.50,Default,,0,0,0,,Stay strong, MegaMan, and fight on!
+//Dialogue: 0,0:01:29.50,0:01:34.00,Default,,0,0,0,,"MegaMan Legends 2, Episode 2:\NThe Mother Lode"
+//Dialogue: 0,0:01:34.00,0:01:37.30,Default,,0,0,0,,is now under development,\Nso stay tuned!
